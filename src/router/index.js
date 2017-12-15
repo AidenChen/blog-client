@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import List from '@/components/List';
+import Home from '@/components/Home';
 import Article from '@/components/Article';
+import List from '@/components/List';
+import Detail from '@/components/Detail';
 
 Vue.use(Router);
 
@@ -9,13 +11,25 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'List',
-      component: List
+      name: 'Home',
+      component: Home
     },
     {
-      path: '/article/:id',
+      path: '/articles',
       name: 'Article',
-      component: Article
+      component: Article,
+      children: [
+        {
+          path: '/articles',
+          name: 'List',
+          component: List
+        },
+        {
+          path: '/articles/:id',
+          name: 'Detail',
+          component: Detail
+        }
+      ]
     },
     {
       path: '*',

@@ -7,7 +7,7 @@
     <ul class="list__article">
       <li class="list__article__filterMsg" v-if="(selectTags.length !== 0)">
         筛选
-        <span>{{ filterMsg }}</span> 
+        <span>{{ filterMsg }}</span>
         分类
       </li>
       <template v-if="posts.length!==0 && isLoading == false">
@@ -18,7 +18,7 @@
             <div class="list__article__item__abstract markdown-body" v-html="compiledMarkdown(article.abstract)"></div>
             <!-- <span v-for="tag in article.tags"> {{tag.name}}</span> -->
             <p>
-              <router-link :to="'/article/'+article.id" class="continue-reading">继续阅读...</router-link>
+              <router-link :to="'/articles/'+article.id" class="continue-reading">继续阅读...</router-link>
             </p>
           </div>
         </li>
