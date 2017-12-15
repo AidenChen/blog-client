@@ -13,3 +13,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+  #particles {
+    height: 100%;
+    overflow-y: hidden;
+  }
+</style>

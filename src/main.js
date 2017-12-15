@@ -4,6 +4,7 @@ import App from './App';
 import router from './router';
 import store from './store';
 import config from './assets/js/config';
+import './assets/scss/index.scss';
 
 Vue.config.productionTip = false;
 Axios.defaults.baseURL = config.baseUri;
