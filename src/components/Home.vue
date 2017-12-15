@@ -7,6 +7,7 @@
       <p><router-link class="home__link" :to="'/articles'">Blog</router-link></p>
       <p><a class="home__link" target="_blank" href="https://github.com/AidenChen">Github</a></p>
       <p><a class="home__link" target="_blank" href="https://weibo.com/1174456280">微博</a></p>
+      <p><a class="home__link" target="_blank" href="http://music.163.com/#/radio/?id=6908010&userid=65098796">电台</a></p>
     </div>
   </div>
 </template>
