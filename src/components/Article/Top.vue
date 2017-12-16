@@ -1,7 +1,7 @@
 <template>
-  <header class="top-header">
-    <!-- <img src="" alt="" class="top-header__menu-button" @click.stop="toggleSideBox"> -->
-    <router-link to="/" class="top-header__main-icon" @click.native='clearFilter'>Aiden's Blog</router-link>
+  <header class="top">
+    <img class="top__menu" @click.stop="toggleSideBox" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAlwSFlzAAALEwAACxMBAJqcGAAAADlJREFUWMPt08ERACAIBDEomvqxBh18EQogn9us+HsJAAAAt0BPfQU8A2YKULKSdQAQmpIBAMBm4AAtdCIhmRB8RAAAAABJRU5ErkJggg==" alt="">
+    <router-link class="top__title" to="/articles" @click.native='clearFilter'>Aiden's Blog</router-link>
   </header>
 </template>
 
@@ -29,7 +29,9 @@ export default {
 </script>
 
 <style lang="scss">
-.top-header {
+@import '../../assets/scss/base.scss';
+
+.top {
   position: fixed;
   top: 0;
   height: 60px;
@@ -41,14 +43,14 @@ export default {
   z-index: 3;
 }
 
-.top-header__main-icon {
+.top__title {
   text-decoration: none;
-  color: #0288D1;
+  color: $blue;
   font-weight: 600;
   font-size: 20px;
 }
 
-.top-header__menu-button {
+.top__menu {
   position: absolute;
   left: 10px;
   top: 50%;
@@ -59,12 +61,12 @@ export default {
 }
 
 @media screen and (max-width: 850px) {
-  .top-header {
+  .top {
     text-align: center;
     padding: 0;
   }
 
-  .top-header__menu-button {
+  .top__menu {
     display: block;
   }
 }

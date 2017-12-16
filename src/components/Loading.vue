@@ -29,17 +29,17 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/base.scss';
+
 .loading {
   text-align: center;
-  color: #0288D1;
+  color: $blue;
 
   .sk-folding-cube .sk-cube:before {
-    background-color: #0288D1;
+    background-color: $blue;
   }
 }
-</style>
 
-<style lang="scss">
 .sk-folding-cube {
   margin: 20px auto;
   width: 40px;

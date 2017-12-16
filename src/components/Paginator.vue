@@ -82,7 +82,6 @@ export default {
       if (page === '...') {
         return;
       }
-      console.log(page);
       // 触发父组件的changePage方法，实现从父组件再修改props,单向数据流
       this.$emit('changePage', page);
     }
@@ -92,6 +91,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../assets/scss/base.scss';
+
 .paginator {
   display: flex;
   max-width: 300px;
@@ -102,7 +103,7 @@ export default {
 .paginator__button {
   flex: 1;
   text-align: center;
-  color: #0288d1;
+  color: $blue;
   cursor: pointer;
 }
 

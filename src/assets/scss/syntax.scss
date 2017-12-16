@@ -1,3 +1,5 @@
+@import './base.scss';
+
 .gutter pre {
   color: #999;
 }
@@ -40,7 +42,7 @@ pre {
   .symbol .string,
   .value,
   .regexp {
-    color: #0288D1;
+    color: $blue;
   }
 
   .title {
@@ -71,7 +73,7 @@ pre {
   .apache .cbracket,
   .tex .command,
   .prompt {
-    color: #0288D1;
+    color: $blue;
   }
 
   .comment,

@@ -2,14 +2,6 @@
   <div class="sideBox">
     <div class="sideBox__mask" :class="{ 'sideBox__mask--show': sideBoxOpen}" @click="closeSideBox"></div>
     <div class="sideBox__main" :class="{ 'sideBox__main--open': sideBoxOpen}">
-      <!-- <img src="http://7xp9v5.com1.z0.glb.clouddn.com/touxiang.png" alt="" class="sideBox__img" @click="backToIndex"> -->
-      <p class="sideBox__name">Aiden Chen</p>
-      <p class="sideBox__motto">Something</p>
-      <!-- <ul class="sideBox__iconList">
-        <li v-for="icon in iconList" class="sideBox__iconItem">
-          <a :href="icon.href"><i class="iconfont" :class="'icon-'+icon.name"></i></a>
-        </li>
-      </ul> -->
       <ul class="sideBox__tagList" v-if="isInList">
         <li v-for="tag in tags" class="sideBox__tagItem" :class="{ 'sideBox__tagItem--active': (typeof selectTags.find(function(e){return e.id == tag.id}) !== 'undefined')}" @click="toggleSelectTags({id:tag.id, name:tag.name})">
           <span>{{tag.name}}</span>
@@ -61,7 +53,6 @@ export default {
     }
   },
   beforeDestroy() {
-    console.log('side beforeDestroy');
     window.onscroll = null;
   },
   methods: {
@@ -84,9 +75,7 @@ export default {
 </script>
 
 <style lang="scss">
-$blue: #0288D1;
-$grey-dark: #808080;
-$grey: #bfbfbf;
+@import '../../assets/scss/base.scss';
 
 .sideBox {
   width: 250px;
@@ -147,7 +136,7 @@ $grey: #bfbfbf;
     margin-top: 15px;
     margin-bottom: 10px;
     font-weight: 400;
-    color: #808080;
+    color: $grey-dark;
     font-size: 18px;
   }
 

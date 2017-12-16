@@ -12,18 +12,11 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Tahoma, Arial, 'Microsoft YaHei', '微软雅黑', SimSun, '宋体',
+    STXihei, '华文细黑', Heiti, '黑体', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
   color: #2c3e50;
-
-  ul {
-    padding: 0;
-  }
-
-  li {
-    box-sizing: border-box;
-  }
 }
 </style>

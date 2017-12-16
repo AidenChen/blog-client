@@ -1,8 +1,8 @@
 <template>
   <div class="list">
-    <Side :isInList='true'/>
+    <side :isInList="true"/>
     <div class="list__loading" v-if="isLoading">
-      <Loading :loadingMsg='loadingMsg'/>
+      <loading :loadingMsg='loadingMsg'/>
     </div>
     <ul class="list__article">
       <li class="list__article__filterMsg" v-if="(selectTags.length !== 0)">
@@ -12,7 +12,7 @@
       </li>
       <template v-if="posts.length!==0 && isLoading == false">
         <li v-for="(article, index) in posts" class="list__article__item">
-          <h1 class="list__article__item__title"><router-link :to="'article/'+article.id">{{ article.title }}</router-link></h1>
+          <h1 class="list__article__item__title"><router-link :to="'/articles/'+article.id">{{ article.title }}</router-link></h1>
           <div class="list__article__item__info">
             <p class="list__article__item__time">{{article.created_at}}</p>
             <div class="list__article__item__abstract markdown-body" v-html="compiledMarkdown(article.abstract)"></div>
@@ -22,7 +22,7 @@
             </p>
           </div>
         </li>
-        <Paginator :curPage='curPage' :total='allPage' @changePage='changePage'/>
+        <paginator :curPage='curPage' :total='allPage' @changePage='changePage'/>
       </template>
       <div v-if="posts.length==0 && isLoading==false" class="msg-box">
         <p>暂时没有相关文章</p>
@@ -33,10 +33,10 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import Paginator from './Paginator';
-import Loading from './Loading';
+import Paginator from '../Paginator';
+import Loading from '../Loading';
 import Side from './Side';
-import marked from '../assets/js/marked';
+import marked from '../../assets/js/marked';
 
 export default {
   name: 'List',
@@ -108,6 +108,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../assets/scss/base.scss';
+
 .list {
   padding: 10px;
   max-width: 1000px;
@@ -157,7 +159,7 @@ export default {
   text-align: center;
 
   span {
-    color: #0288D1;
+    color: $blue;
   }
 }
 
@@ -180,7 +182,7 @@ export default {
   margin-left: -(200px / 2) + 125;
   margin-top: -(200px / 2) + 60;
   text-align: center;
-  color: #bfbfbf;
+  color: $grey;
 }
 
 @media screen and (max-width: 850px) {
