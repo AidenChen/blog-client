@@ -1,3 +1,3 @@
 export default {
-  baseUri: 'http://127.0.0.1:3000'
+  baseUri: 'http://47.88.228.174:3000'
 };
