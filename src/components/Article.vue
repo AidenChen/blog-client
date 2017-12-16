@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/scss/markdown.scss';
+// @import '../assets/scss/markdown.scss';
 
 $footer-height: 60px;
 
