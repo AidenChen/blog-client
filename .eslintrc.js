@@ -57,5 +57,6 @@ module.exports = {
     'func-names': 'off',
     'no-bitwise': 'off',
     'consistent-return': 'off',
+    'linebreak-style': 'off',
   }
 }
