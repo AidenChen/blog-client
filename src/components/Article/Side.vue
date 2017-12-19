@@ -1,20 +1,20 @@
 <template>
-  <div class="sideBox">
-    <div class="sideBox__mask" :class="{ 'sideBox__mask--show': sideBoxOpen}" @click="closeSideBox"></div>
-    <div class="sideBox__main" :class="{ 'sideBox__main--open': sideBoxOpen}">
-      <img src="" alt="" class="sideBox__img" @click="backToIndex">
-      <p class="sideBox__name">Aiden Chen</p>
-      <p class="sideBox__motto">csc@aidenchen.me</p>
-      <ul class="sideBox__tagList" v-if="isInList">
-        <li v-for="tag in tags" class="sideBox__tagItem" :class="{ 'sideBox__tagItem--active': (typeof selectTags.find(function(e){return e.id == tag.id}) !== 'undefined')}" @click="toggleSelectTags({id:tag.id, name:tag.name})">
+  <div class="side">
+    <div class="side__mask" :class="{ 'side__mask--show': sideBoxOpen}" @click="closeSideBox"></div>
+    <div class="side__main" :class="{ 'side__main--open': sideBoxOpen}">
+      <img src="" alt="" class="side__avatar" @click="backToIndex">
+      <p class="side__name">Aiden Chen</p>
+      <p class="side__email">csc@aidenchen.me</p>
+      <ul class="side__tags" v-if="isInList">
+        <li v-for="(tag, index) in tags" :key='index' class="side__tag" :class="{ 'side__tag--active': (typeof selectTags.find(function(e){return e.id == tag.id}) !== 'undefined')}" @click="toggleSelectTags({id:tag.id, name:tag.name})">
           <span>{{tag.name}}</span>
         </li>
       </ul>
-      <div class="categoryBox" v-if="!isInList" :class="{ 'categoryBox--fixed': (scrollTop > 270)}" ref="categoryBox">
-        <p class="categoryBox__title">文章目录</p>
-        <ul class="categoryBox__list">
-          <li v-for="item in category" :class="'categoryBox__'+item.tagName">
-            <a :href="item.href">{{item.text}}</a>
+      <div class="catalog" v-if="!isInList" :class="{ 'catalog--fixed': (scrollTop > 270)}" ref="catalog">
+        <p class="catalog__title">文章目录</p>
+        <ul class="catalog__main">
+          <li v-for="(item, index) in category" :key='index' :class="'catalog__item catalog__'+item.tagName" @click="closeSideBox">
+            <a class="catalog__link" :href="item.href">{{item.text}}</a>
           </li>
         </ul>
       </div>
@@ -94,13 +94,17 @@ export default {
 <style lang="scss">
 @import '../../assets/scss/base.scss';
 
-.sideBox {
+.side {
   width: 250px;
   float: left;
   text-align: center;
 }
 
-.sideBox__img {
+.side__mask {
+  display: none;
+}
+
+.side__avatar {
   width: 150px;
   border-radius: 50%;
   box-shadow: 0 0 2px black;
@@ -108,24 +112,24 @@ export default {
   cursor: pointer;
 }
 
-.sideBox__name {
+.side__name {
   color: $grey-dark;
   font-size: 20px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.sideBox__motto {
+.side__email {
   color: $grey;
   margin-bottom: 8px;
 }
 
-.sideBox__tagList {
+.side__tags {
   list-style: none;
   padding: 10px;
 }
 
-.sideBox__tagItem {
+.side__tag {
   display: inline-block;
   border: 1px solid $grey;
   border-radius: 4px;
@@ -139,79 +143,18 @@ export default {
   }
 }
 
-.sideBox__tagItem--active {
+.side__tag--active {
   color: $blue;
   border: 1px solid $blue;
 }
 
-.categoryBox {
+.catalog {
   padding-left: 20px;
   padding-right: 15px;
   will-change: transform;
-
-  &__title {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    font-weight: 400;
-    color: $grey-dark;
-    font-size: 18px;
-  }
-
-  ul {
-    list-style: none;
-  }
-
-  li {
-    text-align: left;
-    margin-bottom: 5px;
-    padding-left: 20px;
-    word-wrap: break-word;
-    word-break: all;
-
-    a {
-      color: $grey;
-      text-decoration: none;
-      margin-left: -18px;
-      word-wrap: break-word;
-      word-break: break-all;
-
-      &:hover {
-        color: $blue;
-        text-decoration: underline;
-      }
-    }
-  }
-
-  &__h1 {
-    margin-left: 0;
-  }
-
-  &__h2 {
-    margin-left: 20px;
-  }
-
-  &__h3 {
-    margin-left: 40px;
-  }
-
-  &__h4 {
-    margin-left: 60px;
-  }
-
-  &__h5 {
-    margin-left: 80px;
-  }
-
-  &__h6 {
-    margin-left: 100px;
-  }
 }
 
-.sideBox__mask {
-  display: none;
-}
-
-.categoryBox--fixed {
+.catalog--fixed {
   position: fixed;
   top: 60px;
   bottom: 0;
@@ -219,63 +162,120 @@ export default {
   width: 250px;
 }
 
+.catalog__title {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: $grey-dark;
+  font-size: 18px;
+}
+
+.catalog__main {
+  list-style: none;
+}
+
+.catalog__item {
+  text-align: left;
+  margin-bottom: 5px;
+  padding-left: 20px;
+  word-wrap: break-word;
+  word-break: all;
+}
+
+.catalog__h1 {
+  margin-left: 0;
+}
+
+.catalog__h2 {
+  margin-left: 20px;
+}
+
+.catalog__h3 {
+  margin-left: 40px;
+}
+
+.catalog__h4 {
+  margin-left: 60px;
+}
+
+.catalog__h5 {
+  margin-left: 80px;
+}
+
+.catalog__h6 {
+  margin-left: 100px;
+}
+
+.catalog__link {
+  color: $grey;
+  text-decoration: none;
+  margin-left: -18px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.catalog__link:hover {
+  color: $blue;
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 850px) {
-  .sideBox {
+  .side {
     position: absolute;
     top: 0;
     left: 0;
+  }
 
-    &__main {
-      position: fixed;
-      left: 0px;
-      top: 60px;
-      bottom: 0;
-      width: 250px;
-      transform: translateX(-250px);
-      -webkit-transform: translateX(-250px);
-      transition: transform 0.3s;
-      -webkit-transtion: transform 0.3s;
-      background-color: white;
-      overflow-x: hidden;
-      overflow-y: auto;
+  .side__mask {
+    position: fixed;
+    top: 60px;
+    left: 250px;
+    right: 0;
+    bottom: 0;
+    display: block;
+    z-index: 1;
+    display: none;
+  }
 
-      &--open {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        z-index: 2;
-        transform: translateX(0px);
-        -webkit-transform: translateX(0px);
-        transition: transform 0.3s;
-        -webkit-transtion: transform 0.3s;
-      }
-    }
+  .side__mask--show {
+    display: block;
+  }
 
-    &__mask {
-      position: fixed;
-      top: 60px;
-      left: 250px;
-      right: 0;
-      bottom: 0;
-      display: block;
-      z-index: 1;
-      display: none;
-    }
+  .side__main {
+    position: fixed;
+    left: 0px;
+    top: 60px;
+    bottom: 0;
+    width: 250px;
+    transform: translateX(-250px);
+    -webkit-transform: translateX(-250px);
+    transition: transform 0.3s;
+    -webkit-transtion: transform 0.3s;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
-    &__mask--show {
-      display: block;
-    }
+  .side__main--open {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    transition: transform 0.3s;
+    -webkit-transtion: transform 0.3s;
+  }
 
-    &__tagItem:hover {
-      color: $grey;
-    }
+  .side__tag:hover {
+    color: $grey;
+  }
 
-    &__tagItem--active:hover {
-      color: $blue;
-    }
+  .side__tag--active:hover {
+    color: $blue;
+  }
 
-    .categoryBox--fixed {
-      position: static;
-      width: auto;
-    }
+  .catalog--fixed {
+    position: static;
+    width: auto;
   }
 }
 </style>
