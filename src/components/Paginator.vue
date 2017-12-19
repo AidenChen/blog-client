@@ -27,6 +27,7 @@ export default {
           arr.push(i);
         }
       } else {
+        /* eslint-disable no-lonely-if */
         if (this.curPage - 1 < 3) {
           // 1 2 3 4 ... total
           for (let i = 1; i <= this.curPage + 1; i++) {

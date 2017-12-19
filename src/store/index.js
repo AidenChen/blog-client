@@ -26,7 +26,7 @@ export default new Vuex.Store({
     curPage: state => state.curPage,
     allPage: state => state.allPage,
     selectTags: state => state.selectTags,
-    searchTags: state => state.selectTags.map((item) => item.id),
+    searchTags: state => state.selectTags.map(item => item.id),
     sideBoxOpen: state => state.sideBoxOpen,
     currentPost: state => state.currentPost,
     currentPostCompile: state => state.currentPostCompile
@@ -35,33 +35,33 @@ export default new Vuex.Store({
     indexArticle({ commit, state }, { tags = '', index = 1, size = 5 } = {}) {
       return articleApi.index(tags, index, size).then(res => {
         commit('INDEX_ARTICLE', { posts: res.data.data.items, allPage: Math.ceil(res.data.data.total / size), curPage: index });
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
           resolve(res);
         });
       });
     },
     showArticle({ commit, state }, id) {
-      let article = state.posts.find((post) => post.id === id);
+      let article = state.posts.find(post => post.id === id);
       if (!article && state.currentPost.id === id) {
         article = state.currentPost;
       }
       if (article && article.content) {
         commit('SHOW_ARTICLE', article);
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
           resolve(article);
         });
       }
-      return articleApi.show(id).then((res) => {
+      return articleApi.show(id).then(res => {
         commit('SHOW_ARTICLE', res.data.data);
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
           resolve(res);
         });
       });
     },
     indexTag({ commit }) {
-      return tagApi.index().then((res) => {
+      return tagApi.index().then(res => {
         commit('INDEX_TAG', res.data.data.items);
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
           resolve(res);
         });
       });
@@ -69,15 +69,17 @@ export default new Vuex.Store({
   },
   mutations: {
     INDEX_ARTICLE: (state, { posts, allPage, curPage }) => {
+      let stateAllPage = allPage;
+      let stateCurPage = curPage;
       if (isNaN(+allPage)) {
-        allPage = 0;
+        stateAllPage = 0;
       }
       if (isNaN(+curPage)) {
-        curPage = 0;
+        stateCurPage = 0;
       }
       state.posts = posts;
-      state.allPage = +allPage;
-      state.curPage = +curPage;
+      state.allPage = +stateAllPage;
+      state.curPage = +stateCurPage;
     },
     SHOW_ARTICLE: (state, article) => {
       state.currentPost = article;
@@ -90,19 +92,19 @@ export default new Vuex.Store({
       state.selectTags = tags;
     },
     TOGGLE_SELECT_TAGS: (state, { id, name }) => {
-      if (typeof state.selectTags.find((e) => e.id === id) === 'undefined') {
+      if (typeof state.selectTags.find(e => e.id === id) === 'undefined') {
         state.selectTags.push({
           id,
           name
         });
       } else {
-        state.selectTags = state.selectTags.filter((e) => e.id !== id);
+        state.selectTags = state.selectTags.filter(e => e.id !== id);
       }
     },
-    TOGGLE_SIDEBOX: (state) => {
+    TOGGLE_SIDEBOX: state => {
       state.sideBoxOpen = !state.sideBoxOpen;
     },
-    CLOSE_SIDEBOX: (state) => {
+    CLOSE_SIDEBOX: state => {
       state.sideBoxOpen = false;
     }
   }

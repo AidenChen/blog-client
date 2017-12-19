@@ -42,6 +42,7 @@ export default {
         Array.from(
           this.$refs.post.querySelectorAll('h1,h2,h3,h4,h5,h6')
         ).forEach((item, index) => {
+          /* eslint-disable no-param-reassign */
           item.id = `${item.localName}-${index}`;
           this.category.push({
             tagName: item.localName,

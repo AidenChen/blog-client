@@ -45,18 +45,14 @@ module.exports = {
     }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-shadow': 'off',
-    'no-console': 'off',
-    'comma-dangle': [2, 'never'],
-    'arrow-parens': 'off',
-    'max-len': 'off',
-    'no-param-reassign': 'off',
-    'no-plusplus': 'off',
-    'no-lonely-if': 'off',
-    'no-underscore-dangle': 'off',
-    'func-names': 'off',
-    'no-bitwise': 'off',
-    'consistent-return': 'off',
+    'comma-dangle': ['error', 'never'],
+    'arrow-parens': ['error', 'as-needed'],
+    'no-plusplus': ['error', {
+      'allowForLoopAfterthoughts': true
+    }],
+    'no-bitwise': ['error', {
+      'allow': ['~']
+    }],
     'linebreak-style': 'off',
   }
 }

@@ -36,7 +36,7 @@ marked.setOptions({
   smartypants: true,
   highlight(code, lang) {
     if (!lang) {
-      return;
+      return undefined;
     }
     if (!~languages.indexOf(lang)) {
       return highlight.highlightAuto(code).value;
