@@ -2,6 +2,9 @@
   <div class="sideBox">
     <div class="sideBox__mask" :class="{ 'sideBox__mask--show': sideBoxOpen}" @click="closeSideBox"></div>
     <div class="sideBox__main" :class="{ 'sideBox__main--open': sideBoxOpen}">
+      <img src="" alt="" class="sideBox__img" @click="backToIndex">
+      <p class="sideBox__name">Aiden Chen</p>
+      <p class="sideBox__motto">csc@aidenchen.me</p>
       <ul class="sideBox__tagList" v-if="isInList">
         <li v-for="tag in tags" class="sideBox__tagItem" :class="{ 'sideBox__tagItem--active': (typeof selectTags.find(function(e){return e.id == tag.id}) !== 'undefined')}" @click="toggleSelectTags({id:tag.id, name:tag.name})">
           <span>{{tag.name}}</span>
@@ -21,6 +24,7 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex';
+import throttle from '../../assets/js/throttle';
 
 export default {
   name: 'Side',
@@ -45,9 +49,9 @@ export default {
     ...mapGetters(['tags', 'selectTags', 'sideBoxOpen'])
   },
   created() {
-    // if (!this.isInList) {
-    //   window.onscroll = throttle(this.getScrollTop, 30);
-    // }
+    if (!this.isInList) {
+      window.onscroll = throttle(this.getScrollTop, 30);
+    }
     if (this.isInList && this.tags.length === 0) {
       this.indexTag();
     }
@@ -64,13 +68,26 @@ export default {
     }),
     ...mapActions(['indexTag']),
     backToIndex() {
-      this.$router.push('/');
+      this.$router.push('/articles');
     },
     clearSelectTagArr() {
       this.setSelectTags([]);
+    },
+    getScrollTop() {
+      let bodyScrollTop = 0;
+      let documentScrollTop = 0;
+      if (document.body) {
+        if (document.body.clientWidth < 850) {
+          return;
+        }
+        bodyScrollTop = document.body.scrollTop;
+      }
+      if (document.documentElement) {
+        documentScrollTop = document.documentElement.scrollTop;
+      }
+      this.scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
     }
-  },
-  watch: {}
+  }
 };
 </script>
 

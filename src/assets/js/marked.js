@@ -22,7 +22,7 @@ highlight.registerLanguage('sql', require('highlight.js/lib/languages/sql'));
 highlight.registerLanguage('stylus', require('highlight.js/lib/languages/stylus'));
 
 highlight.configure({
-  classPrefix: '' // don't append class prefix
+  classPrefix: ''
 });
 
 marked.setOptions({

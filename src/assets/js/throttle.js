@@ -1,7 +1,7 @@
 export default function (fn, time) {
   let timer;
   const firstTime = true;
-  return function (...args) {
+  return (...args) => {
     if (firstTime) {
       fn.apply(this, args);
       return false;
@@ -14,5 +14,6 @@ export default function (fn, time) {
       timer = null;
       fn.apply(this, args);
     }, time || 500);
+    return undefined;
   };
 }
