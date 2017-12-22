@@ -14,6 +14,7 @@ export default new Vuex.Store({
     },
     currentPostCompile: '',
     posts: [],
+    total: 0,
     allPage: 0,
     curPage: 0,
     tags: [],
@@ -23,6 +24,7 @@ export default new Vuex.Store({
   getters: {
     posts: state => state.posts,
     tags: state => state.tags,
+    total: state => state.total,
     curPage: state => state.curPage,
     allPage: state => state.allPage,
     selectTags: state => state.selectTags,
@@ -34,7 +36,7 @@ export default new Vuex.Store({
   actions: {
     indexArticle({ commit, state }, { tags = '', index = 1, size = 5 } = {}) {
       return articleApi.index(tags, index, size).then(res => {
-        commit('INDEX_ARTICLE', { posts: res.data.data.items, allPage: Math.ceil(res.data.data.total / size), curPage: index });
+        commit('INDEX_ARTICLE', { posts: res.data.data.items, total: res.data.data.total, allPage: Math.ceil(res.data.data.total / size), curPage: index });
         return new Promise(resolve => {
           resolve(res);
         });
@@ -68,7 +70,7 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    INDEX_ARTICLE: (state, { posts, allPage, curPage }) => {
+    INDEX_ARTICLE: (state, { posts, total, allPage, curPage }) => {
       let stateAllPage = allPage;
       let stateCurPage = curPage;
       if (isNaN(+allPage)) {
@@ -78,6 +80,7 @@ export default new Vuex.Store({
         stateCurPage = 0;
       }
       state.posts = posts;
+      state.total = total;
       state.allPage = +stateAllPage;
       state.curPage = +stateCurPage;
     },

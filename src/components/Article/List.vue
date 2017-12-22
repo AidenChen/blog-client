@@ -22,7 +22,17 @@
             </p>
           </div>
         </li>
-        <paginator :curPage='curPage' :total='allPage' @changePage='changePage'/>
+        <div class="list__paginator">
+          <paginator
+            :page-index="curPage"
+            :page-size="5"
+            :total="total"
+            :pager-length="3"
+            :layout="'pager'"
+            :background="true"
+            @page-changed="changePage"
+          />
+        </div>
       </template>
       <div v-if="posts.length==0 && isLoading==false" class="msg-box">
         <p>暂时没有相关文章</p>
@@ -43,6 +53,7 @@ export default {
   computed: {
     ...mapGetters([
       'posts',
+      'total',
       'tags',
       'curPage',
       'allPage',
@@ -171,6 +182,11 @@ export default {
   height: 200px;
   margin-left: -(300px / 2) + 125;
   margin-top: -(200px / 2) + 60;
+}
+
+.list__paginator {
+  display: table;
+  margin: 20px auto;
 }
 
 .msg-box {
