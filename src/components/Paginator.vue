@@ -102,7 +102,7 @@ export default {
     // 页码内容
     numbers() {
       const numbers = [];
-      if (this.pageCount <= this.pagerLength) {
+      if (this.pageCount <= this.pagerLength + 2) {
         for (let i = 1; i <= this.pageCount; i++) {
           numbers.push(i);
         }
