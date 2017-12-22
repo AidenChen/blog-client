@@ -85,7 +85,10 @@ export default {
       if (document.documentElement) {
         documentScrollTop = document.documentElement.scrollTop;
       }
-      this.scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+      this.scrollTop =
+        bodyScrollTop - documentScrollTop > 0
+          ? bodyScrollTop
+          : documentScrollTop;
     }
   }
 };
@@ -137,10 +140,10 @@ export default {
   padding: 10px;
   color: $grey;
   cursor: pointer;
+}
 
-  &:hover {
-    color: $blue;
-  }
+.side__tag:hover {
+  color: $blue;
 }
 
 .side__tag--active {

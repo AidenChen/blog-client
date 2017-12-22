@@ -73,7 +73,7 @@ export default {
   width: 300px;
   height: 200px;
   margin-left: -(300px / 2) + 125;
-  margin-top: -(200px /2 ) + 60;
+  margin-top: -(200px /2) + 60;
 }
 
 .detail__main {
