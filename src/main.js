@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import Furoshiki from 'furoshiki';
 import Axios from 'axios';
 import App from './App';
 import router from './router';
@@ -7,6 +8,7 @@ import config from './assets/js/config';
 import './assets/scss/index.scss';
 
 Vue.config.productionTip = false;
+Vue.use(Furoshiki);
 Axios.defaults.baseURL = config.baseUri;
 Axios.interceptors.response.use(response => response, error => Promise.reject(error));
 

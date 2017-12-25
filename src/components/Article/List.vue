@@ -23,7 +23,7 @@
           </div>
         </li>
         <div class="list__paginator">
-          <paginator
+          <f-paginator
             :page-index="curPage"
             :page-size="5"
             :total="total"
@@ -43,7 +43,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import Paginator from '../Paginator';
 import Loading from '../Loading';
 import Side from './Side';
 import marked from '../../assets/js/marked';
@@ -82,7 +81,6 @@ export default {
     }
   },
   components: {
-    Paginator,
     Side,
     Loading
   },
