@@ -4,7 +4,7 @@
     <div class="side__main" :class="{ 'side__main--open': sideBoxOpen}">
       <img src="" alt="" class="side__avatar" @click="backToIndex">
       <p class="side__name">Aiden Chen</p>
-      <p class="side__email">csc@aidenchen.me</p>
+      <p class="side__email">chenscrocker@hotmail.com</p>
       <ul class="side__tags" v-if="isInList">
         <li v-for="(tag, index) in tags" :key='index' class="side__tag" :class="{ 'side__tag--active': (typeof selectTags.find(function(e){return e.id == tag.id}) !== 'undefined')}" @click="toggleSelectTags({id:tag.id, name:tag.name})">
           <span>{{tag.name}}</span>
