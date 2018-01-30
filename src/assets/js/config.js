@@ -1,3 +1,3 @@
 export default {
-  baseUri: 'http://aidenchen.me:3000'
+  baseUri: 'https://aiden-chen.com:4433'
 };
