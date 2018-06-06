@@ -2,7 +2,7 @@
   <div class="side">
     <div class="side__mask" :class="{ 'side__mask--show': sideBoxOpen}" @click="closeSideBox"></div>
     <div class="side__main" :class="{ 'side__main--open': sideBoxOpen}">
-      <img src="" alt="" class="side__avatar" @click="backToIndex">
+      <img src="http://p2kxp2xqg.bkt.clouddn.com/blog/avatar.png" alt="头像" class="side__avatar" @click="backToIndex">
       <p class="side__name">Aiden Chen</p>
       <p class="side__email">chenscrocker@hotmail.com</p>
       <ul class="side__tags" v-if="isInList">
