@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '@/components/Home';
-import Article from '@/components/Article/Article';
-import List from '@/components/Article/List';
-import Detail from '@/components/Article/Detail';
+import Home from '@/views/home';
+import Post from '@/views/post';
+import PostList from '@/views/post/post-list';
+import PostDetail from '@/views/post/post-detail';
+import Tag from '@/views/tag';
+import Profile from '@/views/profile';
 
 Vue.use(Router);
 
@@ -12,29 +14,39 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home
+      name: 'home',
+      component: Home,
     },
     {
-      path: '/articles',
-      name: 'Article',
-      component: Article,
+      path: '/posts',
+      name: 'post',
+      component: Post,
       children: [
         {
-          path: '/articles',
-          name: 'List',
-          component: List
+          path: '/posts',
+          name: 'post-list',
+          component: PostList,
         },
         {
-          path: '/articles/:id',
-          name: 'Detail',
-          component: Detail
-        }
-      ]
+          path: '/posts/:id',
+          name: 'post-detail',
+          component: PostDetail,
+        },
+      ],
+    },
+    {
+      path: '/tags',
+      name: 'tag',
+      component: Tag,
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
     },
     {
       path: '*',
-      redirect: '/'
-    }
-  ]
+      redirect: '/',
+    },
+  ],
 });

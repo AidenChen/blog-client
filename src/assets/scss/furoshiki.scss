@@ -1,3 +1,17 @@
-$--color-primary: #0288D1;
+$--color-primary: #111;
 
 @import '~furoshiki/packages/theme-default/src/index';
+
+.f-paginator__number {
+  background: none !important;
+  border: none !important;
+  color: #999 !important;
+}
+
+.f-paginator__number--active {
+  color: $--color-primary !important;
+}
+
+.f-paginator__number--disabled {
+  display: none !important;
+}

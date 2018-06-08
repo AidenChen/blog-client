@@ -1,27 +1,29 @@
 <template>
-  <div class="home">
-    <top/>
+  <div class="post">
+    <topbar/>
     <transition name="fade" mode="out-in">
-      <keep-alive exclude="Detail">
+      <!-- <keep-alive exclude="post-detail"> -->
         <router-view/>
-      </keep-alive>
+      <!-- </keep-alive> -->
     </transition>
   </div>
 </template>
 
 <script>
-import Top from './Top';
+import Topbar from '../../components/topbar';
 
 export default {
-  name: 'Article',
+  name: 'post',
   components: {
-    Top
-  }
+    Topbar,
+  },
 };
 </script>
 
 <style lang="scss">
-@import '../../assets/scss/base.scss';
+.post {
+  height: 100%;
+}
 
 .fade-enter-active,
 .fade-leave-active {
