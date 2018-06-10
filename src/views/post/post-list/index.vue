@@ -14,7 +14,7 @@
           <router-link :to="'/posts/'+post.id"
             class="post-entry"
           >
-            继续阅读...
+            Read More...
           </router-link>
         </p>
         <p>
