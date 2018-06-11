@@ -32,7 +32,9 @@
           :total="total"
           :pager-length="3"
           :layout="'pager'"
-          :background="true"
+          :background="false"
+          :previous-text="'Previous'"
+          :next-text="'Next'"
           @page-changed="changePage"
         />
       </div>
