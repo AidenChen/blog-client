@@ -14,7 +14,7 @@
         <a class="home-link" target="_blank" href="https://weibo.com/1174456280">微博</a>
       </p>
       <p>
-        <a class="home-link" target="_blank" href="http://music.163.com/#/radio/?id=6908010&userid=65098796">电台</a>
+        <a class="home-link" target="_blank" href="https://music.163.com/#/djradio?id=6908010">电台</a>
       </p>
     </div>
   </div>
