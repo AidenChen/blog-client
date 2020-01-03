@@ -4,7 +4,7 @@
     <div class="profile">
       <div class="profile-inner">
         <div class="profile-abstract">
-          <img src="http://p2kxp2xqg.bkt.clouddn.com/blog/avatar.png" alt="头像" class="profile-avatar">
+          <img src="http://cdn.aiden-chen.com/blog/avatar.png" alt="头像" class="profile-avatar">
           <p class="profile-name">Aiden Chen</p>
           <p class="profile-slogan">会当出岫拿苍冥</p>
           <ul class="profile-tags">
