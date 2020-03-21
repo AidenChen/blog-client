@@ -17,6 +17,7 @@
         <a class="home-link" target="_blank" href="https://music.163.com/#/djradio?id=6908010">电台</a>
       </p>
     </div>
+    <p class="home-footer">Copyright © 2017-2020 by Aiden Chen <a href="http://www.beian.miit.gov.cn/">粤ICP备18011597号</a></p>
   </div>
 </template>
 
@@ -63,5 +64,17 @@ export default {
 .home-link {
   color: #999;
   text-decoration: none;
+}
+
+.home-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+  a {
+    color: #111;
+  }
 }
 </style>
