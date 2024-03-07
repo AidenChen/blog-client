@@ -1,55 +1,34 @@
 <template>
-  <div>
-    <topbar/>
-    <div class="tag">
-      <ul class="tag-items">
-        <li class="tag-item" v-for="(tag, index) in tags" :key="index"
-          @click="goToPost(tag.id)"
-        >
-          <span>{{tag.name}}</span>
-        </li>
-      </ul>
-    </div>
+  <div class="tag">
+    <ul class="tag-items">
+      <li class="tag-item" v-for="(tag, index) in tags" :key="index"
+        @click="goToPost(tag.id)"
+      >
+        <span>{{tag.name}}</span>
+      </li>
+    </ul>
   </div>
 </template>
 
-<script>
-import { mapGetters, mapActions } from 'vuex';
-import Topbar from '../../components/topbar';
+<script lang="ts" setup>
+import { storeToRefs } from 'pinia';
+import { useStateStore } from '@/stores/state';
 
-export default {
-  name: 'tag',
-  components: {
-    Topbar,
-  },
-  data() {
-    return {
-    };
-  },
-  computed: {
-    ...mapGetters([
-      'tags',
-    ]),
-  },
-  mounted() {
-    this.indexTag().then(() => {
-    });
-  },
-  methods: {
-    ...mapActions([
-      'indexTag',
-    ]),
-    goToPost(tag) {
-      this.$router.push({
-        name: 'post-list',
-        query: { tags: tag },
-      });
-    },
-  },
+const router = useRouter();
+const stateStore = useStateStore();
+const { tags } = storeToRefs(stateStore);
+
+const goToPost = (tag: string) => {
+  router.push({
+    name: 'post-list',
+    query: { tags: tag },
+  });
 };
+
+await stateStore.indexTag();
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .tag {
   padding-top: 85px;
 }

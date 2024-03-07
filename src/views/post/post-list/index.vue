@@ -1,112 +1,60 @@
 <template>
   <div class="post-list">
-    <ul class="post-items" v-if="posts.length!==0">
+    <ul class="post-items" v-if="posts.length !== 0">
       <li v-for="(post, index) in posts" :key="index" class="post-item">
-        <p class="post-time">{{post.created_at}}</p>
+        <p class="post-time">{{ post.created_at }}</p>
         <h1 class="post-title">
-          <router-link :to="'/posts/'+post.id">{{ post.title }}</router-link>
+          <router-link :to="'/posts/' + post.id">{{ post.title }}</router-link>
         </h1>
-        <div class="post-abstract markdown-body"
-          v-html="compiledMarkdown(post.abstract)"
-        >
-        </div>
+        <div class="post-abstract markdown-body" v-html="compiledMarkdown(post.abstract)"></div>
         <p>
-          <router-link :to="'/posts/'+post.id"
-            class="post-entry"
-          >
-            Read More...
-          </router-link>
+          <router-link :to="'/posts/' + post.id" class="post-entry"> Read More... </router-link>
         </p>
         <p>
-          <span v-for="(tag, index) in post.tags" :key="index"
-            class="post-tag"
-          >
-            {{tag.name}}
+          <span v-for="(tag, index) in post.tags" :key="index" class="post-tag">
+            {{ tag.name }}
           </span>
         </p>
       </li>
-      <div class="post-paginator">
-        <f-paginator
-          :page-index="curPage"
-          :page-size="10"
-          :total="total"
-          :pager-length="3"
-          :layout="'pager'"
-          :background="false"
-          :previous-text="'Previous'"
-          :next-text="'Next'"
-          @page-changed="changePage"
-        />
-      </div>
     </ul>
   </div>
 </template>
 
-<script>
-import { mapGetters, mapMutations, mapActions } from 'vuex';
-import marked from '../../../assets/js/marked';
+<script lang="ts" setup>
+import { watchEffect } from 'vue';
+import { storeToRefs } from 'pinia';
+import marked from '@/assets/scripts/marked';
+import { useStateStore } from '@/stores/state';
 
-export default {
-  name: 'post-list',
-  data() {
-    return {
-    };
-  },
-  computed: {
-    ...mapGetters([
-      'posts',
-      'total',
-      'tags',
-      'curPage',
-      'allPage',
-      'selectTags',
-      'searchTags',
-      'currentPost',
-    ]),
-    filterMsg() {
-      let msg = '';
-      this.selectTags.forEach((item) => {
-        msg += `${item.name}、`;
-      });
-      return msg.replace(/、$/, '');
-    },
-  },
-  watch: {
-    selectTags() {
-      this.indexPost({
-        tags: this.searchTags.join(','),
-      }).then(() => {
-      });
-    },
-  },
-  mounted() {
-    if (this.$route.query.tags) {
-      this.setSelectTags([{ id: this.$route.query.tags }]);
-    } else {
-      this.indexPost().then(() => {
-      });
-    }
-  },
-  methods: {
-    ...mapMutations({
-      setSelectTags: 'SET_SELECT_TAGS',
-    }),
-    ...mapActions([
-      'indexPost',
-    ]),
-    compiledMarkdown(value) {
-      return marked(value);
-    },
-    changePage(cur) {
-      this.indexPost({ tags: this.searchTags.join(','), index: cur }).then(() => {
-      });
-    },
-  },
+defineOptions({
+  name: 'PostList'
+});
+
+const route = useRoute();
+const stateStore = useStateStore();
+const { posts, selectTags, searchTags } = storeToRefs(stateStore);
+
+if (route.query.tags) {
+  selectTags.value = [{ id: route.query.tags }];
+} else {
+  await stateStore.indexPost();
+}
+
+watchEffect(async () => {
+  await stateStore.indexPost({
+    tags: searchTags.value.join(',')
+  });
+});
+
+const compiledMarkdown = (value: any) => {
+  return marked(value);
 };
 </script>
 
-<style lang="scss">
-@import '../../../assets/scss/base.scss';
+<style lang="scss" scoped>
+$black: #111;
+$gray-dark: #999;
+$gray: #eee;
 
 .post-list {
   padding-top: 85px;
@@ -161,11 +109,6 @@ export default {
   margin-right: 10px;
   padding: 5px;
   color: $gray-dark;
-}
-
-.post-paginator {
-  display: table;
-  margin: 60px auto;
 }
 
 @media screen and (max-width: 850px) {

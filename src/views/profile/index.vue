@@ -1,44 +1,30 @@
 <template>
-  <div>
-    <topbar/>
-    <div class="profile">
-      <div class="profile-inner">
-        <div class="profile-abstract">
-          <img src="http://cdn.aiden-chen.com/blog/avatar.png" alt="头像" class="profile-avatar">
-          <p class="profile-name">Aiden Chen</p>
-          <p class="profile-slogan">会当出岫拿苍冥</p>
-          <ul class="profile-tags">
-            <li class="profile-tag" v-for="(tag, index) in tags" :key="index">
-              <span>{{tag}}</span>
-            </li>
-          </ul>
-        </div>
-        <div class="profile-detail">
-        </div>
+  <div class="profile">
+    <div class="profile-inner">
+      <div class="profile-abstract">
+        <img src="https://static.aiden-chen.com/blog/guitar.jpg" alt="头像" class="profile-avatar" />
+        <p class="profile-name">Aiden Chen</p>
+        <p class="profile-slogan">会当出岫拿苍冥</p>
+        <ul class="profile-tags">
+          <li class="profile-tag" v-for="(tag, index) in tags" :key="index">
+            <span>{{ tag }}</span>
+          </li>
+        </ul>
       </div>
+      <div class="profile-detail"></div>
     </div>
   </div>
 </template>
 
-<script>
-import Topbar from '../../components/topbar';
+<script lang="ts" setup>
+defineOptions({
+  name: 'Profile'
+});
 
-export default {
-  name: 'profile',
-  components: {
-    Topbar,
-  },
-  data() {
-    return {
-      tags: ['JavaScript', 'Node.js', 'PHP'],
-    };
-  },
-  methods: {
-  },
-};
+const tags = ['JavaScript', 'Node.js', 'PHP'];
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .profile {
   padding-top: 85px;
 }

@@ -1,9 +1,8 @@
 <template>
   <div class="home">
-    <div class="home-particles" id="particles"></div>
     <div class="home-content">
       <h1 class="home-title">Aiden Chen</h1>
-      <h4 class="home-description">Composing, Code & Things in Between&nbsp;</h4>
+      <h4 class="home-description">Think twice & Code once</h4>
       <p>
         <router-link class="home-link" :to="'/posts'">Blog</router-link>
       </p>
@@ -11,36 +10,23 @@
         <a class="home-link" target="_blank" href="https://github.com/AidenChen">Github</a>
       </p>
       <p>
-        <a class="home-link" target="_blank" href="https://weibo.com/1174456280">微博</a>
-      </p>
-      <p>
-        <a class="home-link" target="_blank" href="https://music.163.com/#/djradio?id=6908010">电台</a>
+        <a class="home-link" target="_blank" href="https://music.163.com/#/djradio?id=6908010">Radio</a>
       </p>
     </div>
-    <p class="home-footer">Copyright © 2017-2020 by Aiden Chen <a href="http://www.beian.miit.gov.cn/">粤ICP备18011597号</a></p>
+    <p class="home-footer">Copyright © Aiden Chen 2024 <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备18011597号</a></p>
   </div>
 </template>
 
-<script>
-import 'particles.js/particles';
-import particles from '../../assets/js/particles';
+<script lang="ts" setup>
 
-export default {
-  name: 'home',
-  mounted() {
-    window.particlesJS('particles', particles);
-  },
-};
+defineOptions({
+  name: 'Home'
+});
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .home {
   height: 100%;
-}
-
-.home-particles {
-  height: 100%;
-  overflow-y: hidden;
 }
 
 .home-content {
@@ -75,6 +61,7 @@ export default {
 
   a {
     color: #111;
+    text-decoration: none;
   }
 }
 </style>
