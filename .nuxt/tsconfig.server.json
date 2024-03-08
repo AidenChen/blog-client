@@ -1,0 +1,75 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "paths": {
+      "#imports": [
+        "./types/nitro-imports"
+      ],
+      "#paths": [
+        "../node_modules/.pnpm/nuxt@3.10.3_sass@1.71.1_vite@5.1.4/node_modules/nuxt/dist/core/runtime/nitro/paths"
+      ],
+      "~": [
+        "../src"
+      ],
+      "~/*": [
+        "../src/*"
+      ],
+      "@": [
+        "../src"
+      ],
+      "@/*": [
+        "../src/*"
+      ],
+      "~~": [
+        "./.."
+      ],
+      "~~/*": [
+        "../*"
+      ],
+      "@@": [
+        "./.."
+      ],
+      "@@/*": [
+        "../*"
+      ],
+      "assets": [
+        "../src/assets"
+      ],
+      "assets/*": [
+        "../src/assets/*"
+      ],
+      "public": [
+        "../src/public"
+      ],
+      "public/*": [
+        "../src/public/*"
+      ],
+      "pinia": [
+        "../node_modules/.pnpm/pinia@2.1.7_vue@3.4.19/node_modules/pinia/dist/pinia"
+      ]
+    }
+  },
+  "include": [
+    "./types/nitro-nuxt.d.ts",
+    "../node_modules/.pnpm/@pinia+nuxt@0.5.1_vue@3.4.19/node_modules/@pinia/nuxt/runtime/server",
+    "../node_modules/.pnpm/@nuxt+telemetry@2.5.3/node_modules/@nuxt/telemetry/runtime/server",
+    "./types/nitro.d.ts",
+    "../**/*",
+    "../src/server/**/*"
+  ],
+  "exclude": [
+    "../node_modules",
+    "../node_modules/.pnpm/nuxt@3.10.3_sass@1.71.1_vite@5.1.4/node_modules/nuxt/node_modules",
+    "../dist"
+  ]
+}
