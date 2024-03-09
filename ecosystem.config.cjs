@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'blog-client',
-      port: 80,
+      port: '4000',
       // exec_mode: 'cluster',
       // instances: 'max',
       script: './.output/server/index.mjs',
