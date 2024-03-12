@@ -12,7 +12,10 @@ export default defineNuxtConfig({
       ],
       meta: [
         { name: 'renderer', content: 'webkit' },
-        { name: 'google', content: 'notranslate' }
+        { name: 'google', content: 'notranslate' },
+        { name: 'keywords', content: 'Aiden Notes' },
+        { name: 'description', content: '个人记录' }
+
       ]
     }
   },
