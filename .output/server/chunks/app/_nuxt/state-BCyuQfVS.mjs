@@ -73,7 +73,7 @@ function klona(x) {
 }
 const inlineConfig = {
   "nuxt": {
-    "buildId": "fa6bc8d6-9c1e-432d-a5e7-e13b7425caae"
+    "buildId": "b1eb0af8-d07d-416e-895e-b70feb926910"
   }
 };
 const __appConfig = /* @__PURE__ */ defuFn(cfg0, inlineConfig);
@@ -1036,4 +1036,4 @@ const useStateStore = defineStore("state", () => {
 });
 
 export { useStateStore as u };
-//# sourceMappingURL=state-BfkfjCxP.mjs.map
+//# sourceMappingURL=state-BCyuQfVS.mjs.map

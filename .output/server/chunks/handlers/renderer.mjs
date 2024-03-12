@@ -99,7 +99,7 @@ function createServerHead(options = {}) {
 
 const unheadPlugins = [];
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1.0, user-scalable=no"},{"charset":"utf-8"},{"name":"renderer","content":"webkit"},{"name":"google","content":"notranslate"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[],"noscript":[],"htmlAttrs":{"lang":"zh-cmn-Hans"},"charset":"utf-8","viewport":"width=device-width, initial-scale=1.0, user-scalable=no","title":"Aiden Notes"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1.0, user-scalable=no"},{"charset":"utf-8"},{"name":"renderer","content":"webkit"},{"name":"google","content":"notranslate"},{"name":"keywords","content":"Aiden Notes"},{"name":"description","content":"个人记录"}],"link":[{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[],"noscript":[],"htmlAttrs":{"lang":"zh-cmn-Hans"},"charset":"utf-8","viewport":"width=device-width, initial-scale=1.0, user-scalable=no","title":"Aiden Notes"};
 
 const appRootId = "__nuxt";
 
