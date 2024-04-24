@@ -1,6 +1,7 @@
 import { ref, computed, toValue, reactive, shallowRef, toRef, getCurrentInstance, onServerPrefetch, unref } from 'vue';
 import { v as defineStore, t as fetchDefaults, b as useRuntimeConfig, o as useNuxtApp, q as asyncDataDefaults, l as defuFn, m as cfg0, c as createError } from '../server.mjs';
 import { marked } from 'marked';
+import hljs from 'highlight.js';
 
 function klona(x) {
   if (typeof x !== "object")
@@ -73,7 +74,7 @@ function klona(x) {
 }
 const inlineConfig = {
   "nuxt": {
-    "buildId": "b1eb0af8-d07d-416e-895e-b70feb926910"
+    "buildId": "20a3891c-f6d1-4f7b-96f2-0ee5b9a67774"
   }
 };
 const __appConfig = /* @__PURE__ */ defuFn(cfg0, inlineConfig);
@@ -895,10 +896,15 @@ function generateOptionSegments(opts) {
   }
   return segments;
 }
+const renderer = new marked.Renderer();
 marked.setOptions({
+  renderer,
   pedantic: false,
   gfm: true,
-  breaks: false
+  breaks: false,
+  highlight: function(code, lang) {
+    return hljs.highlight(lang, code).value;
+  }
 });
 const requestFailed = (response) => {
   if (!response) {
@@ -1036,4 +1042,4 @@ const useStateStore = defineStore("state", () => {
 });
 
 export { useStateStore as u };
-//# sourceMappingURL=state-BCyuQfVS.mjs.map
+//# sourceMappingURL=state-BQfCnuyV.mjs.map

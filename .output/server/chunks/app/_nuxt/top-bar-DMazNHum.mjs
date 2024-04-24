@@ -1,7 +1,7 @@
 import { useSSRContext, defineComponent, resolveComponent, mergeProps, withCtx, createTextVNode } from 'vue';
 import { ssrRenderAttrs, ssrRenderAttr, ssrRenderComponent } from 'vue/server-renderer';
 import { _ as _export_sfc, s as storeToRefs } from '../server.mjs';
-import { u as useStateStore } from './state-BCyuQfVS.mjs';
+import { u as useStateStore } from './state-BQfCnuyV.mjs';
 import 'node:http';
 import 'node:https';
 import 'node:zlib';
@@ -18,6 +18,7 @@ import 'path';
 import 'unhead';
 import 'vue-router';
 import 'marked';
+import 'highlight.js';
 
 const _imports_0 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAlwSFlzAAALEwAACxMBAJqcGAAAADlJREFUWMPt08ERACAIBDEomvqxBh18EQogn9us+HsJAAAAt0BPfQU8A2YKULKSdQAQmpIBAMBm4AAtdCIhmRB8RAAAAABJRU5ErkJggg==";
 const _sfc_main = /* @__PURE__ */ defineComponent({
@@ -111,4 +112,4 @@ _sfc_main.setup = (props, ctx) => {
 const topBar = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-9bd8d612"]]);
 
 export { topBar as default };
-//# sourceMappingURL=top-bar-BPmvz2XJ.mjs.map
+//# sourceMappingURL=top-bar-DMazNHum.mjs.map
