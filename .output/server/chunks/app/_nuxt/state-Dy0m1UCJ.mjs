@@ -74,7 +74,7 @@ function klona(x) {
 }
 const inlineConfig = {
   "nuxt": {
-    "buildId": "20a3891c-f6d1-4f7b-96f2-0ee5b9a67774"
+    "buildId": "d6484c53-fe76-4cfa-b8d5-f57139402c99"
   }
 };
 const __appConfig = /* @__PURE__ */ defuFn(cfg0, inlineConfig);
@@ -903,6 +903,9 @@ marked.setOptions({
   gfm: true,
   breaks: false,
   highlight: function(code, lang) {
+    if (!lang) {
+      return hljs.highlightAuto(code).value;
+    }
     return hljs.highlight(lang, code).value;
   }
 });
@@ -1042,4 +1045,4 @@ const useStateStore = defineStore("state", () => {
 });
 
 export { useStateStore as u };
-//# sourceMappingURL=state-BQfCnuyV.mjs.map
+//# sourceMappingURL=state-Dy0m1UCJ.mjs.map

@@ -10,6 +10,9 @@ marked.setOptions({
   gfm: true,
   breaks: false,
   highlight: function (code: any, lang: any) {
+    if (!lang) {
+      return hljs.highlightAuto(code).value;
+    }
     return hljs.highlight(lang, code).value;
   }
 });
