@@ -1,5 +1,5 @@
 import { hasInjectionContext, inject, version, unref, toRaw, isRef, isReactive, toRef, defineComponent, ref, provide, createElementBlock, h, computed, shallowReactive, watch, Suspense, nextTick, Transition, useSSRContext, mergeProps, withCtx, createVNode, createApp, effectScope, reactive, getCurrentInstance, getCurrentScope, onScopeDispose, onErrorCaptured, onServerPrefetch, resolveDynamicComponent, shallowRef, isReadonly, toRefs, markRaw, isShallow, defineAsyncComponent } from 'vue';
-import { $ as $fetch, w as withQuery, l as hasProtocol, p as parseURL, m as isScriptProtocol, n as joinURL, h as createError$1, o as defu, q as sanitizeStatusCode, r as createHooks, t as isSamePath, v as toRouteMatcher, x as createRouter$1 } from '../runtime.mjs';
+import { $ as $fetch, w as withQuery, l as hasProtocol, p as parseURL, m as isScriptProtocol, n as joinURL, h as createError$1, o as defu, q as sanitizeStatusCode, r as createHooks, t as isSamePath } from '../runtime.mjs';
 import { b as baseURL } from '../routes/renderer.mjs';
 import { getActiveHead } from 'unhead';
 import { defineHeadPlugin } from '@unhead/shared';
@@ -646,14 +646,6 @@ const appKeepalive = false;
 const nuxtLinkDefaults = { "componentName": "NuxtLink" };
 const asyncDataDefaults = { "deep": true };
 const fetchDefaults = {};
-async function getRouteRules(url) {
-  {
-    const _routeRulesMatcher = toRouteMatcher(
-      createRouter$1({ routes: (/* @__PURE__ */ useRuntimeConfig()).nitro.routeRules })
-    );
-    return defu({}, ..._routeRulesMatcher.matchAll(url).reverse());
-  }
-}
 const _routes = [];
 const _wrapIf = (component, props, slots) => {
   props = props === true ? {} : props;
@@ -737,33 +729,33 @@ const customRoutes = [
   {
     name: "home",
     path: "/home",
-    component: () => import('./index-DPaHms4d.mjs').then((r) => r.default || r)
+    component: () => import('./index-J-Z_Gitt.mjs').then((r) => r.default || r)
   },
   {
     path: "/posts",
-    component: () => import('./index-CfKi9fIA.mjs').then((r) => r.default || r),
+    component: () => import('./index-DTsKPaS-.mjs').then((r) => r.default || r),
     children: [
       {
         name: "post-list",
         path: "",
-        component: () => import('./index-CWUCBVpx.mjs').then((r) => r.default || r)
+        component: () => import('./index-SGlIpAUj.mjs').then((r) => r.default || r)
       },
       {
         name: "post-detail",
         path: ":id",
-        component: () => import('./index-jORJGNHV.mjs').then((r) => r.default || r)
+        component: () => import('./index-CAWBiwcj.mjs').then((r) => r.default || r)
       }
     ]
   },
   {
     name: "tag",
     path: "/tags",
-    component: () => import('./index-D3Ta3zHD.mjs').then((r) => r.default || r)
+    component: () => import('./index-CifWrHbu.mjs').then((r) => r.default || r)
   },
   {
     name: "profile",
     path: "/profile",
-    component: () => import('./index-DdHjhZ9g.mjs').then((r) => r.default || r)
+    component: () => import('./index-ByPC_zff.mjs').then((r) => r.default || r)
   }
 ];
 const routerOptions1 = {
@@ -796,14 +788,8 @@ const validate = /* @__PURE__ */ defineNuxtRouteMiddleware(async (to) => {
     return result;
   }
 });
-const manifest_45route_45rule = /* @__PURE__ */ defineNuxtRouteMiddleware(async (to) => {
-  {
-    return;
-  }
-});
 const globalMiddleware = [
-  validate,
-  manifest_45route_45rule
+  validate
 ];
 const namedMiddleware = {};
 const plugin$1 = /* @__PURE__ */ defineNuxtPlugin({
@@ -906,18 +892,6 @@ const plugin$1 = /* @__PURE__ */ defineNuxtPlugin({
           }
           for (const entry2 of toArray(componentMiddleware)) {
             middlewareEntries.add(entry2);
-          }
-        }
-        {
-          const routeRules = await nuxtApp.runWithContext(() => getRouteRules(to.path));
-          if (routeRules.appMiddleware) {
-            for (const key in routeRules.appMiddleware) {
-              if (routeRules.appMiddleware[key]) {
-                middlewareEntries.add(key);
-              } else {
-                middlewareEntries.delete(key);
-              }
-            }
           }
         }
         for (const entry2 of middlewareEntries) {
@@ -1416,8 +1390,8 @@ const plugins = [
   components_plugin_KR1HBZs4kY
 ];
 const layouts = {
-  default: () => import('./default-n988c5cj.mjs').then((m) => m.default || m),
-  "top-bar": () => import('./top-bar-B-ioF77k.mjs').then((m) => m.default || m)
+  default: () => import('./default-CTASsMSe.mjs').then((m) => m.default || m),
+  "top-bar": () => import('./top-bar-Bz5kxpRd.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",
@@ -1723,8 +1697,8 @@ const _sfc_main$1 = {
     const statusMessage = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = defineAsyncComponent(() => import('./error-404-CPHOFDze.mjs').then((r) => r.default || r));
-    const _Error = defineAsyncComponent(() => import('./error-500-vUZahDJe.mjs').then((r) => r.default || r));
+    const _Error404 = defineAsyncComponent(() => import('./error-404-D2Wgk1Di.mjs').then((r) => r.default || r));
+    const _Error = defineAsyncComponent(() => import('./error-500-DPPjaytL.mjs').then((r) => r.default || r));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
       _push(ssrRenderComponent(unref(ErrorTemplate), mergeProps({ statusCode: unref(statusCode), statusMessage: unref(statusMessage), description: unref(description), stack: unref(stack) }, _attrs), null, _parent));
