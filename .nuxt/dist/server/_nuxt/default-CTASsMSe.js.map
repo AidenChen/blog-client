@@ -1,0 +1,1 @@
+{"version":3,"file":"default-CTASsMSe.js","sources":["../../../../src/layouts/default.vue"],"sourcesContent":["<template>\n  <slot />\n</template>\n"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;AAAA,SAAA,eAAA,MAAA,OAAA,SAAA,QAAA;;;;;;;;;;"}

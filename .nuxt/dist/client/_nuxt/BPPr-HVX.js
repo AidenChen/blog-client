@@ -1,0 +1,1 @@
+import{d as t,t as o,v as n,z as s,G as _,_ as a}from"./BQ5yH6pD.js";const c={class:"post"},p=t({name:"Post",__name:"index",setup(d){return(r,m)=>{const e=_;return o(),n("div",c,[s(e)])}}}),x=a(p,[["__scopeId","data-v-08bae2ad"]]);export{x as default};
