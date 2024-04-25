@@ -9,7 +9,7 @@
           <router-link class="header-link" to="/profile">PROFILE</router-link>
         </div>
       </nav>
-      <router-link class="top__title" to="/home" @click.native="clearFilter"> Aiden Notes </router-link>
+      <router-link class="top__title" to="/home"> Aiden Notes </router-link>
     </div>
   </header>
 </template>
@@ -19,14 +19,18 @@ import { storeToRefs } from 'pinia';
 import { useStateStore } from '@/stores/state';
 
 const stateStore = useStateStore();
-const { selectTags } = storeToRefs(stateStore);
+const { posts, selectTags, curPage, allPage } = storeToRefs(stateStore);
 
 defineOptions({
   name: 'TopBar'
 });
 
 const clearFilter = () => {
+  posts.value = [];
+  curPage.value = 1;
+  allPage.value = 0;
   selectTags.value = [];
+  stateStore.indexPost();
 };
 </script>
 

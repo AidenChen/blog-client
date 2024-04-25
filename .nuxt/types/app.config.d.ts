@@ -5,7 +5,7 @@ import cfg0 from "E:/workspace/code/blog/blog-client/src/app.config"
 
 declare const inlineConfig = {
   "nuxt": {
-    "buildId": "da67cf40-e03d-433e-918c-2b9c773ef59a"
+    "buildId": "dev"
   }
 }
 type ResolvedAppConfig = Defu<typeof inlineConfig, [typeof cfg0]>

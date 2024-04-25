@@ -15,7 +15,6 @@ const customRoutes = [
       {
         name: 'post-list',
         path: '',
-        ssr: false,
         component: () => import('@/views/post/post-list/index.vue').then((r) => r.default || r)
       },
       {

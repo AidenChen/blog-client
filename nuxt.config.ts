@@ -20,6 +20,9 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: 'page', mode: 'out-in' }
   },
+  routeRules: {
+    '/posts': { ssr: false }
+  },
   srcDir: 'src/',
   modules: ['@pinia/nuxt'],
   runtimeConfig: {

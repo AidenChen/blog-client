@@ -18,17 +18,13 @@ export const useStateStore = defineStore('state', () => {
   const allPage = ref<number>(0);
   const curPage = ref<number>(0);
 
-  const searchTags = computed(() => {
-    return selectTags.value.map((item: any) => item.id);
-  });
-
   const indexPost = async ({ tags = '', index = 1, size = 10 } = {}) => {
     const { error, data } = await getPostList({ tags, index, size });
     if (error?.message) {
       return;
     }
 
-    posts.value = data?.data?.items ?? [];
+    posts.value = posts.value.concat(data?.data?.items ?? []);
     total.value = data?.data.total;
     const count = Math.ceil(total.value / size);
 
@@ -82,7 +78,6 @@ export const useStateStore = defineStore('state', () => {
     curPage,
     allPage,
     selectTags,
-    searchTags,
     currentPost,
     currentPostCompile,
     indexPost,
