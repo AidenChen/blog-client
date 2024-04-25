@@ -13,12 +13,13 @@
         <a class="home-link" target="_blank" href="https://music.163.com/#/djradio?id=6908010">Radio</a>
       </p>
     </div>
-    <p class="home-footer">Copyright © Aiden Chen 2024 <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备18011597号</a></p>
+    <div class="home-footer">
+      <span>Copyright © Aiden Chen 2024</span> <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备18011597号</a>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-
 defineOptions({
   name: 'Home'
 });
@@ -26,16 +27,14 @@ defineOptions({
 
 <style lang="scss" scoped>
 .home {
-  height: 100%;
+  height: calc(100vh - 60px - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-content {
   width: 320px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -160px;
-  margin-left: -160px;
   text-align: center;
 }
 
@@ -58,8 +57,16 @@ defineOptions({
   left: 0;
   right: 0;
   text-align: center;
+  height: 18px;
+  line-height: 18px;
+  margin: 16px 0;
+
+  span {
+    font-size: 12px;
+  }
 
   a {
+    font-size: 12px;
     color: #111;
     text-decoration: none;
   }

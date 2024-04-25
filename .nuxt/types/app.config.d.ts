@@ -1,11 +1,11 @@
 
 import type { CustomAppConfig } from 'nuxt/schema'
 import type { Defu } from 'defu'
-import cfg0 from "/Users/aiden/Documents/code/blog/blog-client/src/app.config"
+import cfg0 from "E:/workspace/code/blog/blog-client/src/app.config"
 
 declare const inlineConfig = {
   "nuxt": {
-    "buildId": "dev"
+    "buildId": "da67cf40-e03d-433e-918c-2b9c773ef59a"
   }
 }
 type ResolvedAppConfig = Defu<typeof inlineConfig, [typeof cfg0]>

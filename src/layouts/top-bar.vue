@@ -4,15 +4,12 @@
       <nav class="site-nav">
         <img class="top__menu" src="@/assets/images/menu.png" alt="菜单" />
         <div class="trigger" ref="trigger">
-          <router-link class="header-link" to="/posts" @click.native="clearFilter"> HOME </router-link>
-          <!-- <router-link class="header-link" to="/posts">TECHNOLOGY</router-link>
-          <router-link class="header-link" to="/posts">MUSIC</router-link>
-          <router-link class="header-link" to="/posts">LIFE</router-link> -->
+          <router-link class="header-link" to="/posts" @click.native="clearFilter"> POSTS </router-link>
           <router-link class="header-link" to="/tags">TAGS</router-link>
           <router-link class="header-link" to="/profile">PROFILE</router-link>
         </div>
       </nav>
-      <router-link class="top__title" to="/posts" @click.native="clearFilter"> Aiden Notes </router-link>
+      <router-link class="top__title" to="/home" @click.native="clearFilter"> Aiden Notes </router-link>
     </div>
   </header>
 </template>
@@ -35,7 +32,7 @@ const clearFilter = () => {
 
 <style lang="scss" scoped>
 .top-bar {
-  position: fixed;
+  position: sticky;
   top: 0;
   height: 60px;
   line-height: 60px;
@@ -43,6 +40,7 @@ const clearFilter = () => {
   border-bottom: 1px solid #eee;
   background: white;
   z-index: 3;
+  box-sizing: border-box;
 }
 
 .top-bar-inner {

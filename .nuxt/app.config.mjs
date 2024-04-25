@@ -4,7 +4,7 @@ import { defuFn } from 'defu'
 
 const inlineConfig = {
   "nuxt": {
-    "buildId": "dev"
+    "buildId": "da67cf40-e03d-433e-918c-2b9c773ef59a"
   }
 }
 
@@ -15,6 +15,6 @@ if (import.meta.hot) {
   })
 }
 
-import cfg0 from "/Users/aiden/Documents/code/blog/blog-client/src/app.config.ts"
+import cfg0 from "E:/workspace/code/blog/blog-client/src/app.config.ts"
 
 export default /*@__PURE__*/ defuFn(cfg0, inlineConfig)

@@ -26,7 +26,7 @@ const tags = ['JavaScript', 'Node.js', 'PHP'];
 
 <style lang="scss" scoped>
 .profile {
-  padding-top: 85px;
+  padding-top: 25px;
 }
 
 .profile-inner {

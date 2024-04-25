@@ -17,7 +17,8 @@ export default defineNuxtConfig({
         { name: 'description', content: '个人记录' }
 
       ]
-    }
+    },
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
   srcDir: 'src/',
   modules: ['@pinia/nuxt'],

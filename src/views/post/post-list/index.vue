@@ -57,7 +57,7 @@ $gray-dark: #999;
 $gray: #eee;
 
 .post-list {
-  padding-top: 85px;
+  padding-top: 25px;
 }
 
 .post-items {
