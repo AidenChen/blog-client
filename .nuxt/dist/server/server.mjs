@@ -6,8 +6,9 @@ import { getContext } from "unctx";
 import { sanitizeStatusCode, createError as createError$1 } from "h3";
 import { getActiveHead } from "unhead";
 import { defineHeadPlugin } from "@unhead/shared";
-import { START_LOCATION, createMemoryHistory, createRouter, useRoute as useRoute$1, RouterView } from "vue-router";
+import { START_LOCATION, createMemoryHistory, createRouter as createRouter$1, useRoute as useRoute$1, RouterView } from "vue-router";
 import { withQuery, hasProtocol, parseURL, isScriptProtocol, joinURL, isSamePath } from "ufo";
+import { toRouteMatcher, createRouter } from "radix3";
 import { defu } from "defu";
 import "klona";
 import { setupDevtoolsPlugin } from "@vue/devtools-api";
@@ -548,6 +549,14 @@ const appKeepalive = false;
 const nuxtLinkDefaults = { "componentName": "NuxtLink" };
 const asyncDataDefaults = { "deep": true };
 const fetchDefaults = {};
+async function getRouteRules(url) {
+  {
+    const _routeRulesMatcher = toRouteMatcher(
+      createRouter({ routes: (/* @__PURE__ */ useRuntimeConfig()).nitro.routeRules })
+    );
+    return defu({}, ..._routeRulesMatcher.matchAll(url).reverse());
+  }
+}
 const _routes = [];
 const _wrapIf = (component, props, slots) => {
   props = props === true ? {} : props;
@@ -631,33 +640,34 @@ const customRoutes = [
   {
     name: "home",
     path: "/home",
-    component: () => import("./_nuxt/index-J-Z_Gitt.js").then((r) => r.default || r)
+    component: () => import("./_nuxt/index-DPaHms4d.js").then((r) => r.default || r)
   },
   {
     path: "/posts",
-    component: () => import("./_nuxt/index-DTsKPaS-.js").then((r) => r.default || r),
+    component: () => import("./_nuxt/index-CfKi9fIA.js").then((r) => r.default || r),
     children: [
       {
         name: "post-list",
         path: "",
-        component: () => import("./_nuxt/index-SGlIpAUj.js").then((r) => r.default || r)
+        ssr: false,
+        component: () => import("./_nuxt/index-Bu1z61K_.js").then((r) => r.default || r)
       },
       {
         name: "post-detail",
         path: ":id",
-        component: () => import("./_nuxt/index-CAWBiwcj.js").then((r) => r.default || r)
+        component: () => import("./_nuxt/index-VWT-X7E6.js").then((r) => r.default || r)
       }
     ]
   },
   {
     name: "tag",
     path: "/tags",
-    component: () => import("./_nuxt/index-CifWrHbu.js").then((r) => r.default || r)
+    component: () => import("./_nuxt/index-COQ4sPgx.js").then((r) => r.default || r)
   },
   {
     name: "profile",
     path: "/profile",
-    component: () => import("./_nuxt/index-ByPC_zff.js").then((r) => r.default || r)
+    component: () => import("./_nuxt/index-DdHjhZ9g.js").then((r) => r.default || r)
   }
 ];
 const routerOptions1 = {
@@ -690,8 +700,14 @@ const validate = /* @__PURE__ */ defineNuxtRouteMiddleware(async (to) => {
     return result;
   }
 });
+const manifest_45route_45rule = /* @__PURE__ */ defineNuxtRouteMiddleware(async (to) => {
+  {
+    return;
+  }
+});
 const globalMiddleware = [
-  validate
+  validate,
+  manifest_45route_45rule
 ];
 const namedMiddleware = {};
 const plugin$1 = /* @__PURE__ */ defineNuxtPlugin({
@@ -707,7 +723,7 @@ const plugin$1 = /* @__PURE__ */ defineNuxtPlugin({
     const history = ((_a = routerOptions.history) == null ? void 0 : _a.call(routerOptions, routerBase)) ?? createMemoryHistory(routerBase);
     const routes = ((_b = routerOptions.routes) == null ? void 0 : _b.call(routerOptions, _routes)) ?? _routes;
     let startPosition;
-    const router = createRouter({
+    const router = createRouter$1({
       ...routerOptions,
       scrollBehavior: (to, from, savedPosition) => {
         if (from === START_LOCATION) {
@@ -794,6 +810,18 @@ const plugin$1 = /* @__PURE__ */ defineNuxtPlugin({
           }
           for (const entry2 of toArray(componentMiddleware)) {
             middlewareEntries.add(entry2);
+          }
+        }
+        {
+          const routeRules = await nuxtApp.runWithContext(() => getRouteRules(to.path));
+          if (routeRules.appMiddleware) {
+            for (const key in routeRules.appMiddleware) {
+              if (routeRules.appMiddleware[key]) {
+                middlewareEntries.add(key);
+              } else {
+                middlewareEntries.delete(key);
+              }
+            }
           }
         }
         for (const entry2 of middlewareEntries) {
@@ -2115,8 +2143,8 @@ const plugins = [
   components_plugin_KR1HBZs4kY
 ];
 const layouts = {
-  default: () => import("./_nuxt/default-CTASsMSe.js").then((m) => m.default || m),
-  "top-bar": () => import("./_nuxt/top-bar-Bz5kxpRd.js").then((m) => m.default || m)
+  default: () => import("./_nuxt/default-n988c5cj.js").then((m) => m.default || m),
+  "top-bar": () => import("./_nuxt/top-bar-BvKoXv_8.js").then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",
@@ -2422,8 +2450,8 @@ const _sfc_main$1 = {
     const statusMessage = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = defineAsyncComponent(() => import("./_nuxt/error-404-D2Wgk1Di.js").then((r) => r.default || r));
-    const _Error = defineAsyncComponent(() => import("./_nuxt/error-500-DPPjaytL.js").then((r) => r.default || r));
+    const _Error404 = defineAsyncComponent(() => import("./_nuxt/error-404-CPHOFDze.js").then((r) => r.default || r));
+    const _Error = defineAsyncComponent(() => import("./_nuxt/error-500-vUZahDJe.js").then((r) => r.default || r));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
       _push(ssrRenderComponent(unref(ErrorTemplate), mergeProps({ statusCode: unref(statusCode), statusMessage: unref(statusMessage), description: unref(description), stack: unref(stack) }, _attrs), null, _parent));

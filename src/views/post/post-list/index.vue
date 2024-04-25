@@ -47,7 +47,7 @@ watchEffect(async () => {
 });
 
 const compiledMarkdown = (value: any) => {
-  return marked(value);
+  return marked.parse(value);
 };
 </script>
 

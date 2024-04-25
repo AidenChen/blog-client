@@ -53,13 +53,13 @@ export const useStateStore = defineStore('state', () => {
       }
       if (post && post.content) {
         currentPost.value = post;
-        currentPostCompile.value = marked(currentPost.value.content) as string;
+        currentPostCompile.value = marked.parse(currentPost.value.content) as string;
         resolve(post);
       }
       getPostDetail(id)
         .then((res) => {
           currentPost.value = res.data.data;
-          currentPostCompile.value = marked(currentPost.value.content) as string;
+          currentPostCompile.value = marked.parse(currentPost.value.content) as string;
           resolve(res);
         });
     });

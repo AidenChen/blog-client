@@ -1,20 +1,16 @@
-import { marked } from 'marked';
+import { Marked } from 'marked';
 import hljs from 'highlight.js';
+import { markedHighlight } from 'marked-highlight';
 import 'highlight.js/styles/monokai-sublime.css';
 
-const renderer = new marked.Renderer();
-
-marked.setOptions({
-  renderer: renderer,
-  pedantic: false,
-  gfm: true,
-  breaks: false,
-  highlight: function (code: any, lang: any) {
-    if (!lang) {
-      return hljs.highlightAuto(code).value;
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: 'hljs language-',
+    highlight(code, lang) {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+      return hljs.highlight(code, { language }).value;
     }
-    return hljs.highlight(lang, code).value;
-  }
-});
+  })
+);
 
 export default marked;
