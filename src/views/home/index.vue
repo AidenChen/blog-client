@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="home-footer">
-      <span>Copyright © Aiden Chen 2024</span> <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备18011597号</a>
+      <span>Copyright © Aiden Chen {{ new Date().getFullYear() }}</span> <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备18011597号</a>
     </div>
   </div>
 </template>

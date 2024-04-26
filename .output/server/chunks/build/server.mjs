@@ -737,7 +737,7 @@ const customRoutes = [
   {
     name: "home",
     path: "/home",
-    component: () => import('./index-DGq57dAT.mjs').then((r) => r.default || r)
+    component: () => import('./index-Cc268TzO.mjs').then((r) => r.default || r)
   },
   {
     path: "/posts",
@@ -746,19 +746,19 @@ const customRoutes = [
       {
         name: "post-list",
         path: "",
-        component: () => import('./index-ycu1cDl-.mjs').then((r) => r.default || r)
+        component: () => import('./index-Dbn5EPAn.mjs').then((r) => r.default || r)
       },
       {
         name: "post-detail",
         path: ":id",
-        component: () => import('./index-BR6PFKf3.mjs').then((r) => r.default || r)
+        component: () => import('./index-CYjMB7g1.mjs').then((r) => r.default || r)
       }
     ]
   },
   {
     name: "tag",
     path: "/tags",
-    component: () => import('./index-ptqRI2mH.mjs').then((r) => r.default || r)
+    component: () => import('./index-DWuxn73b.mjs').then((r) => r.default || r)
   },
   {
     name: "profile",
@@ -1442,7 +1442,7 @@ const plugins = [
 ];
 const layouts = {
   default: () => import('./default-n988c5cj.mjs').then((m) => m.default || m),
-  "top-bar": () => import('./top-bar-BsGStsAh.mjs').then((m) => m.default || m)
+  "top-bar": () => import('./top-bar-XzBBtjVj.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",

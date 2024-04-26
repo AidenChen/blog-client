@@ -89,6 +89,7 @@ $gray: #eee;
 
 .post-list {
   padding-top: 25px;
+  padding-bottom: 10px;
   box-sizing: border-box;
 }
 
@@ -103,9 +104,9 @@ $gray: #eee;
   margin: 0 auto 15px;
   border-bottom: 1px solid $gray;
 
-  & + .post-item {
-    margin-bottom: 0;
-  }
+  // & + .post-item {
+  //   margin-bottom: 0;
+  // }
 }
 
 .post-time {
