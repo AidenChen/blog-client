@@ -110,6 +110,8 @@ onBeforeUnmount(() => {
   display: flex;
   justify-content: center;
   padding-top: 9px;
+  padding-bottom: 25px;
+  box-sizing: border-box;
 }
 
 .post-detail-inner {
@@ -126,8 +128,8 @@ onBeforeUnmount(() => {
   overflow: hidden;
   min-height: 100%;
   border-bottom: 1px solid #eee;
-  padding-bottom: 80px;
-  margin-bottom: 30px;
+  // padding-bottom: 80px;
+  // margin-bottom: 30px;
 }
 
 .post-title {

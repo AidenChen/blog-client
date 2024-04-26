@@ -737,7 +737,7 @@ const customRoutes = [
   {
     name: "home",
     path: "/home",
-    component: () => import('./index-CQAhCkws.mjs').then((r) => r.default || r)
+    component: () => import('./index-DFj0SmLw.mjs').then((r) => r.default || r)
   },
   {
     path: "/posts",
@@ -746,25 +746,24 @@ const customRoutes = [
       {
         name: "post-list",
         path: "",
-        ssr: false,
-        component: () => import('./index-B7Actgbz.mjs').then((r) => r.default || r)
+        component: () => import('./index-C39h2TrT.mjs').then((r) => r.default || r)
       },
       {
         name: "post-detail",
         path: ":id",
-        component: () => import('./index-CgrIpg0v.mjs').then((r) => r.default || r)
+        component: () => import('./index-B49X8Ouw.mjs').then((r) => r.default || r)
       }
     ]
   },
   {
     name: "tag",
     path: "/tags",
-    component: () => import('./index-BMGQsibe.mjs').then((r) => r.default || r)
+    component: () => import('./index-Dap1W_sJ.mjs').then((r) => r.default || r)
   },
   {
     name: "profile",
     path: "/profile",
-    component: () => import('./index-DqgQjLD2.mjs').then((r) => r.default || r)
+    component: () => import('./index-CTR7hy4m.mjs').then((r) => r.default || r)
   }
 ];
 const routerOptions1 = {
@@ -1409,16 +1408,42 @@ const revive_payload_server_eJ33V7gbc6 = /* @__PURE__ */ defineNuxtPlugin({
 const components_plugin_KR1HBZs4kY = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:global-components"
 });
+const loadMore = {
+  mounted(el, binding) {
+    const defaultOptions = {
+      selector: ""
+    };
+    const config = Object.assign({}, defaultOptions, binding.value);
+    const element = config.selector ? (void 0).querySelector(config.selector) : el;
+    const handleScroll = () => {
+      const scrollTop = element.scrollTop;
+      const scrollHeight = element.scrollHeight;
+      const clientHeight = element.clientHeight;
+      if (scrollTop + clientHeight >= scrollHeight) {
+        el.dispatchEvent(new CustomEvent("load-more"));
+      }
+    };
+    element.removeEventListener("scroll", handleScroll);
+    element.addEventListener("scroll", handleScroll);
+  },
+  getSSRProps() {
+    return {};
+  }
+};
+const load_more_2ZWfKJWPH7 = /* @__PURE__ */ defineNuxtPlugin((nuxtApp) => {
+  nuxtApp.vueApp.directive("loadMore", loadMore);
+});
 const plugins = [
   unhead_KgADcZ0jPj,
   plugin$1,
   plugin,
   revive_payload_server_eJ33V7gbc6,
-  components_plugin_KR1HBZs4kY
+  components_plugin_KR1HBZs4kY,
+  load_more_2ZWfKJWPH7
 ];
 const layouts = {
   default: () => import('./default-n988c5cj.mjs').then((m) => m.default || m),
-  "top-bar": () => import('./top-bar-ChIUvyOp.mjs').then((m) => m.default || m)
+  "top-bar": () => import('./top-bar-BjgZL4N7.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",

@@ -38,6 +38,7 @@ const tags = ['JavaScript', 'Node.js', 'PHP'];
 .profile-abstract {
   width: 250px;
   text-align: center;
+  float: left;
 }
 
 .profile-avatar {
@@ -80,11 +81,6 @@ const tags = ['JavaScript', 'Node.js', 'PHP'];
 }
 
 @media screen and (max-width: 850px) {
-  .profile {
-    position: relative;
-    padding-top: 80px;
-  }
-
   .profile-abstract {
     display: none;
   }

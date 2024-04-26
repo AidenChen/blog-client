@@ -49,11 +49,4 @@ await stateStore.indexTag();
   color: #999;
   cursor: pointer;
 }
-
-@media screen and (max-width: 850px) {
-  .tag {
-    position: relative;
-    padding-top: 80px;
-  }
-}
 </style>

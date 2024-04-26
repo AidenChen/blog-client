@@ -43,6 +43,16 @@
 // }
 
 // markdown
+.markdown-body {
+  color: #1f2328 !important;
+  background-color: #fff !important;
+}
+
+.markdown-body blockquote {
+  color: #656d76 !important;
+  border-color: #d0d7de !important;
+}
+
 .markdown-body pre {
   padding: 0 !important;
 }

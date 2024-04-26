@@ -128,15 +128,4 @@ $gray: #eee;
   padding: 5px;
   color: $gray-dark;
 }
-
-@media screen and (max-width: 850px) {
-  .post-list {
-    position: relative;
-    padding-top: 80px;
-  }
-
-  .post-item {
-    margin-bottom: 10px;
-  }
-}
 </style>
