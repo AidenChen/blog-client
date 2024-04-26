@@ -1,28 +1,30 @@
 @import 'normalize.css/normalize.css';
 @import 'github-markdown-css';
 
-// 滚动条样式
-::-webkit-scrollbar {
-  width: 6px;
-  height: 5px;
-  background-color: #888888;
-}
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background: #fff;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 6px;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #888888;
-}
-::-webkit-scrollbar-thumb:hover {
-  border-radius: 6px;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #f2f6fc;
+@media screen and (min-width: 850px) {
+  // 滚动条样式
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 5px;
+    background-color: #888888;
+  }
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background: #fff;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #888888;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    border-radius: 6px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f2f6fc;
+  }
 }
 
 // transition
@@ -36,11 +38,6 @@
   opacity: 0;
   filter: blur(1rem);
 }
-
-// 标签样式
-// html, body {
-//   height: 100%;
-// }
 
 // markdown
 .markdown-body {

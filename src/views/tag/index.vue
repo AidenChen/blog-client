@@ -37,7 +37,7 @@ await stateStore.indexTag();
   list-style: none;
   margin: 0 auto;
   padding: 0 30px;
-  max-width: calc(1000px - (30px * 2));
+  max-width: 940px;
 }
 
 .tag-item {

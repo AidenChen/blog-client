@@ -21,6 +21,5 @@ defineOptions({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #111;
-  min-height: 100vh;
 }
 </style>

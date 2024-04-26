@@ -640,7 +640,7 @@ const customRoutes = [
   {
     name: "home",
     path: "/home",
-    component: () => import("./_nuxt/index-DFj0SmLw.js").then((r) => r.default || r)
+    component: () => import("./_nuxt/index-DGq57dAT.js").then((r) => r.default || r)
   },
   {
     path: "/posts",
@@ -649,24 +649,24 @@ const customRoutes = [
       {
         name: "post-list",
         path: "",
-        component: () => import("./_nuxt/index-C39h2TrT.js").then((r) => r.default || r)
+        component: () => import("./_nuxt/index-ycu1cDl-.js").then((r) => r.default || r)
       },
       {
         name: "post-detail",
         path: ":id",
-        component: () => import("./_nuxt/index-B49X8Ouw.js").then((r) => r.default || r)
+        component: () => import("./_nuxt/index-BR6PFKf3.js").then((r) => r.default || r)
       }
     ]
   },
   {
     name: "tag",
     path: "/tags",
-    component: () => import("./_nuxt/index-Dap1W_sJ.js").then((r) => r.default || r)
+    component: () => import("./_nuxt/index-ptqRI2mH.js").then((r) => r.default || r)
   },
   {
     name: "profile",
     path: "/profile",
-    component: () => import("./_nuxt/index-CTR7hy4m.js").then((r) => r.default || r)
+    component: () => import("./_nuxt/index-Cy7vJMDC.js").then((r) => r.default || r)
   }
 ];
 const routerOptions1 = {
@@ -2136,22 +2136,21 @@ const components_plugin_KR1HBZs4kY = /* @__PURE__ */ defineNuxtPlugin({
 });
 const loadMore = {
   mounted(el, binding) {
-    const defaultOptions = {
-      selector: ""
-    };
-    const config = Object.assign({}, defaultOptions, binding.value);
-    const element = config.selector ? (void 0).querySelector(config.selector) : el;
     const handleScroll = () => {
-      const scrollTop = element.scrollTop;
-      const scrollHeight = element.scrollHeight;
-      const clientHeight = element.clientHeight;
-      if (scrollTop + clientHeight >= scrollHeight) {
+      const scrollTop = (void 0).body.scrollTop || (void 0).documentElement.scrollTop;
+      const scrollHeight = (void 0).body.scrollHeight || (void 0).documentElement.scrollHeight;
+      const clientHeight = (void 0).innerHeight;
+      if (scrollHeight - (scrollTop + clientHeight) <= 0.5) {
         el.dispatchEvent(new CustomEvent("load-more"));
       }
     };
-    element.removeEventListener("scroll", handleScroll);
-    element.addEventListener("scroll", handleScroll);
+    (void 0).removeEventListener("scroll", handleScroll);
+    (void 0).addEventListener("scroll", handleScroll);
   },
+  // unmounted (el: HTMLElement, binding: any) {
+  //   const { dir } = binding;
+  //   window.removeEventListener('scroll', dir.handleScroll);
+  // },
   getSSRProps() {
     return {};
   }
@@ -2169,7 +2168,7 @@ const plugins = [
 ];
 const layouts = {
   default: () => import("./_nuxt/default-n988c5cj.js").then((m) => m.default || m),
-  "top-bar": () => import("./_nuxt/top-bar-BjgZL4N7.js").then((m) => m.default || m)
+  "top-bar": () => import("./_nuxt/top-bar-BsGStsAh.js").then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",
@@ -2421,7 +2420,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLayout = __nuxt_component_0$1;
       const _component_NuxtPage = __nuxt_component_0;
-      _push(`<div${ssrRenderAttrs(mergeProps({ id: "app" }, _attrs))} data-v-58398e64>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ id: "app" }, _attrs))} data-v-a0836dc6>`);
       _push(ssrRenderComponent(_component_NuxtLayout, null, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -2453,7 +2452,7 @@ _sfc_main$2.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("app.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const AppComponent = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-58398e64"]]);
+const AppComponent = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-a0836dc6"]]);
 const _sfc_main$1 = {
   __name: "nuxt-error-page",
   __ssrInlineRender: true,

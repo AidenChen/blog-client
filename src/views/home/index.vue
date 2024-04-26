@@ -29,11 +29,18 @@ defineOptions({
 
 <style lang="scss" scoped>
 .home {
-  height: calc(100vh - 60px);
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-inner {
-  height: calc(100vh - 60px - 50px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,6 +65,8 @@ defineOptions({
 }
 
 .home-footer {
+  position: absolute;
+  bottom: 0;
   text-align: center;
   height: 18px;
   line-height: 18px;

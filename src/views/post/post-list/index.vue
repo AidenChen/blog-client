@@ -1,6 +1,6 @@
 <template>
   <div class="post-list">
-    <ul class="post-items" v-load-more="{ selector: '.post-list' }" @load-more="handleLoadMore">
+    <ul class="post-items">
       <li v-for="post in posts" :key="post.id" class="post-item">
         <p class="post-time">{{ post.created_at }}</p>
         <h1 class="post-title">
@@ -34,6 +34,8 @@ const stateStore = useStateStore();
 const { posts, selectTags, curPage, allPage } = storeToRefs(stateStore);
 
 onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+
   posts.value = [];
   curPage.value = 1;
   allPage.value = 0;
@@ -42,6 +44,10 @@ onMounted(() => {
   } else {
     stateStore.indexPost();
   }
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
 });
 
 watch(() => selectTags.value, async (val: any[]) => {
@@ -55,6 +61,15 @@ watch(() => selectTags.value, async (val: any[]) => {
 const compiledMarkdown = (value: any) => {
   return marked.parse(value);
 };
+
+const handleScroll = () => {
+  const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+  const scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+  const clientHeight = window.innerHeight;
+  if (scrollHeight - (scrollTop + clientHeight) <= 0.5) {
+    handleLoadMore();
+  }
+}
 
 const handleLoadMore = () => {
   if (curPage.value + 1 <= allPage.value) {
@@ -73,21 +88,24 @@ $gray-dark: #999;
 $gray: #eee;
 
 .post-list {
-  height: calc(100vh - 85px);
   padding-top: 25px;
-  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .post-items {
   list-style: none;
   margin: 0 auto;
   padding: 0 30px;
-  max-width: calc(1000px - (30px * 2));
+  max-width: 940px;
 }
 
 .post-item {
   margin: 0 auto 15px;
   border-bottom: 1px solid $gray;
+
+  & + .post-item {
+    margin-bottom: 0;
+  }
 }
 
 .post-time {

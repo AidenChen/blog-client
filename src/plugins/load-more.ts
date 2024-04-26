@@ -2,24 +2,21 @@ import type { Directive } from 'vue';
 
 const loadMore: Directive = {
   mounted (el: HTMLElement, binding: any) {
-    const defaultOptions = {
-      selector: ''
-    }
-    const config = Object.assign({}, defaultOptions, binding.value)
-    const element = config.selector ? document.querySelector(config.selector) : el
-
     const handleScroll = () => {
-      const scrollTop = element.scrollTop
-      const scrollHeight = element.scrollHeight
-      const clientHeight = element.clientHeight
-      if (scrollTop + clientHeight >= scrollHeight) {
+      const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+      const scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+      const clientHeight = window.innerHeight;
+      if (scrollHeight - (scrollTop + clientHeight) <= 0.5) {
         el.dispatchEvent(new CustomEvent('load-more'))
       }
-    };
-
-    element.removeEventListener('scroll', handleScroll);
-    element.addEventListener('scroll', handleScroll);
+    }
+    window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
   },
+  // unmounted (el: HTMLElement, binding: any) {
+  //   const { dir } = binding;
+  //   window.removeEventListener('scroll', dir.handleScroll);
+  // },
   getSSRProps () {
     return {};
   }
