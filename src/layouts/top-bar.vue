@@ -2,9 +2,9 @@
   <header class="top-bar">
     <div class="top-bar-inner">
       <nav class="site-nav">
-        <img class="top__menu" src="@/assets/images/menu.png" alt="菜单" />
-        <div class="trigger" ref="trigger">
-          <router-link class="header-link" to="/posts" @click.native="clearFilter"> POSTS </router-link>
+        <img @touchstart="handleClick" ref="menuRef" class="top__menu" src="@/assets/images/menu.png" alt="菜单" />
+        <div class="trigger" :class="{ hover: isHover }">
+          <router-link class="header-link" to="/posts" @click.native="clearFilter">POSTS</router-link>
           <router-link class="header-link" to="/tags">TAGS</router-link>
           <router-link class="header-link" to="/profile">PROFILE</router-link>
         </div>
@@ -15,6 +15,7 @@
 </template>
 
 <script lang="ts" setup>
+import { onClickOutside } from '@vueuse/core';
 import { storeToRefs } from 'pinia';
 import { useStateStore } from '@/stores/state';
 
@@ -32,6 +33,16 @@ const clearFilter = () => {
   selectTags.value = [];
   stateStore.indexPost();
 };
+
+const isHover = ref<boolean>(false);
+const handleClick = () => {
+  isHover.value = true;
+}
+
+const menuRef = ref<any>(null);
+onClickOutside(menuRef, () => {
+  isHover.value = false;
+});
 </script>
 
 <style lang="scss" scoped>
@@ -111,10 +122,16 @@ const clearFilter = () => {
   .trigger {
     clear: both;
     display: none;
+
+    &.hover {
+      display: block !important;
+    }
   }
 
-  .site-nav:hover .trigger {
-    display: block;
+  .site-nav:hover {
+    .trigger {
+      display: block;
+    }
   }
 
   .header-link {
