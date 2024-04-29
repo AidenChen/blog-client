@@ -7,10 +7,10 @@
           <router-link :to="'/posts/' + post.id">{{ post.title }}</router-link>
         </h1>
         <div class="post-abstract markdown-body" v-html="compiledMarkdown(post.abstract)"></div>
-        <p>
+        <p v-if="post.abstract">
           <router-link :to="'/posts/' + post.id" class="post-entry"> Read More... </router-link>
         </p>
-        <p>
+        <p style="margin-top: 0;">
           <span v-for="tag in post.tags.sort((a: any, b: any) => a.name.localeCompare(b.name))" :key="tag.id" class="post-tag">
             {{ tag.name }}
           </span>
@@ -110,7 +110,7 @@ $gray: #eee;
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 10px;
-  margin-top: 2px;
+  margin-top: 0;
 }
 
 .post-title {

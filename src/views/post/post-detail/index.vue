@@ -127,8 +127,6 @@ onBeforeUnmount(() => {
   overflow: hidden;
   min-height: 100%;
   border-bottom: 1px solid #eee;
-  // padding-bottom: 80px;
-  // margin-bottom: 30px;
 }
 
 .post-title {
@@ -148,6 +146,10 @@ onBeforeUnmount(() => {
 @media screen and (max-width: 850px) {
   .catalog {
     display: none;
+  }
+
+  .post-detail-inner {
+    box-sizing: border-box;
   }
 }
 
