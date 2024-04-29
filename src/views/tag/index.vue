@@ -30,7 +30,7 @@ await stateStore.indexTag();
 
 <style lang="scss" scoped>
 .tag {
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
 .tag-items {

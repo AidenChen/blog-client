@@ -6,11 +6,11 @@
         <h1 class="post-title">
           <router-link :to="'/posts/' + post.id">{{ post.title }}</router-link>
         </h1>
-        <div class="post-abstract markdown-body" v-html="compiledMarkdown(post.abstract)"></div>
+        <div v-if="post.abstract" class="post-abstract markdown-body" v-html="compiledMarkdown(post.abstract)"></div>
         <p v-if="post.abstract">
           <router-link :to="'/posts/' + post.id" class="post-entry"> Read More... </router-link>
         </p>
-        <p style="margin-top: 0;">
+        <p v-if="post.tags.length" style="margin-top: 0;">
           <span v-for="tag in post.tags.sort((a: any, b: any) => a.name.localeCompare(b.name))" :key="tag.id" class="post-tag">
             {{ tag.name }}
           </span>

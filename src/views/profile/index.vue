@@ -12,7 +12,7 @@
         </ul>
       </div>
       <div class="profile-detail">
-        <h2>基本信息</h2>
+        <h2 style="margin-top: 0;">基本信息</h2>
         <h3>92年/男/本科/福州</h3>
         <div>我从2014年开始自学前端开发，曾参与过车联网、应急指挥、校园安全、内河船运、智能门诊、特殊教育、数据分析等多种行业应用的开发，并在多家公司担任过前端开发负责人或架构师。</div>
         <h2>技术能力</h2>
@@ -60,7 +60,6 @@ const tags = ['JavaScript', 'Node.js', 'PHP'];
 .profile-avatar {
   width: 150px;
   border-radius: 50%;
-  margin-top: 10px;
 }
 
 .profile-name {
