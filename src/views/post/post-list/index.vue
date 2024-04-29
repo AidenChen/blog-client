@@ -103,10 +103,6 @@ $gray: #eee;
 .post-item {
   margin: 0 auto 15px;
   border-bottom: 1px solid $gray;
-
-  // & + .post-item {
-  //   margin-bottom: 0;
-  // }
 }
 
 .post-time {

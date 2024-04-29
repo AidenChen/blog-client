@@ -115,7 +115,6 @@ onBeforeUnmount(() => {
 }
 
 .post-detail-inner {
-  box-sizing: border-box;
   padding: 0 30px;
   max-width: 940px;
   width: 100%;
@@ -153,14 +152,17 @@ onBeforeUnmount(() => {
 }
 
 .catalog {
-  padding-top: 10px;
+  padding-top: 8px;
   position: relative;
-  overflow-y: auto;
   width: 250px;
 }
 
 .catalog-inner {
   position: fixed;
+  width: 240px;
+  overflow-y: auto;
+  max-height: calc(100vh - 60px - 17px - 17px);
+  padding-bottom: 17px;
 }
 
 .catalog-title {

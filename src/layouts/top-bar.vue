@@ -2,7 +2,7 @@
   <header class="top-bar">
     <div class="top-bar-inner">
       <nav class="site-nav">
-        <img @touchstart="handleClick" ref="menuRef" class="top__menu" src="@/assets/images/menu.png" alt="菜单" />
+        <img @touchstart.passive="handleClick" ref="menuRef" class="top__menu" src="@/assets/images/menu.png" alt="菜单" />
         <div class="trigger" :class="{ hover: isHover }">
           <router-link class="header-link" to="/posts" @click.native="clearFilter">POSTS</router-link>
           <router-link class="header-link" to="/tags">TAGS</router-link>
