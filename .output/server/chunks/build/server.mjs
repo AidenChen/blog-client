@@ -746,19 +746,19 @@ const customRoutes = [
       {
         name: "post-list",
         path: "",
-        component: () => import('./index-CZZMpAv6.mjs').then((r) => r.default || r)
+        component: () => import('./index-fF_Lj2jD.mjs').then((r) => r.default || r)
       },
       {
         name: "post-detail",
         path: ":id",
-        component: () => import('./index-CoyfZeSx.mjs').then((r) => r.default || r)
+        component: () => import('./index-BV2byLBx.mjs').then((r) => r.default || r)
       }
     ]
   },
   {
     name: "tag",
     path: "/tags",
-    component: () => import('./index-BiBh9NgL.mjs').then((r) => r.default || r)
+    component: () => import('./index-B1hZCsyG.mjs').then((r) => r.default || r)
   },
   {
     name: "profile",
@@ -1442,7 +1442,7 @@ const plugins = [
 ];
 const layouts = {
   default: () => import('./default-n988c5cj.mjs').then((m) => m.default || m),
-  "top-bar": () => import('./top-bar-DRlSOMpd.mjs').then((m) => m.default || m)
+  "top-bar": () => import('./top-bar-B6qTOFRR.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",
