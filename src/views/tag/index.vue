@@ -1,6 +1,6 @@
 <template>
   <div class="tag">
-    <ul class="tag-items">
+    <ul class="tag-inner">
       <li class="tag-item" v-for="(tag, index) in tags" :key="index"
         @click="goToPost(tag.id)"
       >
@@ -13,6 +13,10 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
 import { useStateStore } from '@/stores/state';
+
+defineOptions({
+  name: 'Tag'
+});
 
 const router = useRouter();
 const stateStore = useStateStore();
@@ -31,22 +35,27 @@ await stateStore.indexTag();
 <style lang="scss" scoped>
 .tag {
   padding-top: 20px;
+  padding-bottom: 24px;
 }
 
-.tag-items {
-  list-style: none;
+.tag-inner {
   margin: 0 auto;
-  padding: 0 30px;
-  max-width: 940px;
+  @extend %maxWidth;
 }
 
 .tag-item {
   display: inline-block;
   border: 1px solid #eee;
-  border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
+  border-radius: 6px;
+  margin: 4px;
+  padding: 6px;
   color: #999;
   cursor: pointer;
+
+  span {
+    display: inline-block;
+    line-height: 20px;
+    height: 20px;
+  }
 }
 </style>

@@ -2,16 +2,14 @@
   <div class="post-detail">
     <div class="post-detail-inner">
       <div class="catalog">
-        <div class="catalog-inner">
-          <p class="catalog-title" v-show="catalog.length">CATALOG</p>
-          <ul class="catalog-items">
-            <li v-for="(item, index) in catalog" :key="index" class="catalog-item" :class="'catalog-item-' + item.tagName">
-              <a class="catalog-link" :class="{ 'catalog-link-active': index === currentIndex }" :href="item.href" @click.prevent="handleScroll(item.href)">{{ item.text }}</a>
-            </li>
-          </ul>
-        </div>
+        <p class="catalog-title" v-show="catalog.length">CATALOG</p>
+        <ul class="catalog-items">
+          <li v-for="(item, index) in catalog" :key="index" class="catalog-item" :class="'catalog-item-' + item.tagName">
+            <a class="catalog-link" :class="{ 'catalog-link-active': index === currentIndex }" :href="item.href" @click.prevent="handleScroll(item.href)">{{ item.text }}</a>
+          </li>
+        </ul>
       </div>
-      <div class="post-wrapper" ref="post">
+      <div class="post" ref="post">
         <h1 class="post-title">{{ currentPost.title }}</h1>
         <p class="post-time">{{ currentPost.created_at }}</p>
         <div class="markdown-body" v-html="currentPostCompile" ref="content"></div>
@@ -107,29 +105,21 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 .post-detail {
-  display: flex;
-  justify-content: center;
-  padding-top: 9px;
-  padding-bottom: 25px;
-  box-sizing: border-box;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 .post-detail-inner {
-  padding: 0 30px;
-  max-width: 940px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
+  @extend %maxWidth;
 }
 
-.post-wrapper {
-  flex: 1;
-  overflow: hidden;
-  min-height: 100%;
-  border-bottom: 1px solid #eee;
+.post {
+  margin-left: 256px;
 }
 
 .post-title {
+  margin-top: 0;
   font-weight: 400;
   font-size: 24px;
   word-break: break-all;
@@ -143,32 +133,16 @@ onBeforeUnmount(() => {
   margin-top: 2px;
 }
 
-@media screen and (max-width: 850px) {
-  .catalog {
-    display: none;
-  }
-
-  .post-detail-inner {
-    box-sizing: border-box;
-  }
-}
-
 .catalog {
-  padding-top: 8px;
-  position: relative;
-  width: 250px;
-}
-
-.catalog-inner {
   position: fixed;
   width: 240px;
   overflow-y: auto;
-  max-height: calc(100vh - 60px - 17px - 17px);
-  padding-bottom: 17px;
+  max-height: calc(100vh - 60px - 17px - 24px);
+  padding-bottom: 24px;
 }
 
 .catalog-title {
-  margin: 8px 0;
+  margin: 0 0 8px;
   color: #111;
   font-size: 18px;
 }
@@ -181,7 +155,6 @@ onBeforeUnmount(() => {
 
 .catalog-item {
   text-align: left;
-  line-height: 20px;
   word-wrap: break-word;
   word-break: all;
 }
@@ -214,6 +187,7 @@ onBeforeUnmount(() => {
   display: block;
   font-size: 14px;
   color: #111;
+  line-height: 22px;
   text-decoration: none;
   padding: 3px 0;
   word-wrap: break-word;
@@ -226,5 +200,15 @@ onBeforeUnmount(() => {
 
 .catalog-link-active {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 1000px) {
+  .catalog {
+    display: none;
+  }
+
+  .post {
+    margin-left: 0;
+  }
 }
 </style>

@@ -746,24 +746,24 @@ const customRoutes = [
       {
         name: "post-list",
         path: "",
-        component: () => import('./index-Dk2IfBcf.mjs').then((r) => r.default || r)
+        component: () => import('./index-DFrycVU-.mjs').then((r) => r.default || r)
       },
       {
         name: "post-detail",
         path: ":id",
-        component: () => import('./index-B39K8Qfr.mjs').then((r) => r.default || r)
+        component: () => import('./index-BZEmjV6V.mjs').then((r) => r.default || r)
       }
     ]
   },
   {
     name: "tag",
     path: "/tags",
-    component: () => import('./index-oXCoOftE.mjs').then((r) => r.default || r)
+    component: () => import('./index-DlJFDJsC.mjs').then((r) => r.default || r)
   },
   {
     name: "profile",
     path: "/profile",
-    component: () => import('./index-BmKO6dXq.mjs').then((r) => r.default || r)
+    component: () => import('./index-bgBycBVR.mjs').then((r) => r.default || r)
   }
 ];
 const routerOptions1 = {
@@ -1442,7 +1442,7 @@ const plugins = [
 ];
 const layouts = {
   default: () => import('./default-n988c5cj.mjs').then((m) => m.default || m),
-  "top-bar": () => import('./top-bar-CBZLOKBN.mjs').then((m) => m.default || m)
+  "top-bar": () => import('./top-bar-GgiMlAw1.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",

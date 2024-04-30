@@ -20,7 +20,7 @@ import { storeToRefs } from 'pinia';
 import { useStateStore } from '@/stores/state';
 
 const stateStore = useStateStore();
-const { posts, selectTags, curPage, allPage } = storeToRefs(stateStore);
+const { posts, curPage, allPage } = storeToRefs(stateStore);
 
 defineOptions({
   name: 'TopBar'
@@ -30,7 +30,6 @@ const clearFilter = () => {
   posts.value = [];
   curPage.value = 1;
   allPage.value = 0;
-  selectTags.value = [];
   stateStore.indexPost();
 };
 
@@ -61,8 +60,7 @@ onClickOutside(menuRef, () => {
 .top-bar-inner {
   height: 60px;
   margin: 0 auto;
-  padding: 0 30px;
-  max-width: 940px;
+  @extend %maxWidth;
 }
 
 .top__title {
@@ -97,7 +95,7 @@ onClickOutside(menuRef, () => {
   margin-right: 20px;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1000px) {
   .top-bar {
     text-align: center;
     padding: 0;

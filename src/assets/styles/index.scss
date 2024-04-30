@@ -1,7 +1,7 @@
 @import 'normalize.css/normalize.css';
 @import 'github-markdown-css';
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 1000px) {
   // 滚动条样式
   ::-webkit-scrollbar {
     width: 6px;
@@ -52,6 +52,10 @@
 
 .markdown-body pre {
   padding: 0 !important;
+}
+
+.markdown-body code {
+  background-color: rgba(175, 184, 193, 0.2) !important;
 }
 
 code.hljs {

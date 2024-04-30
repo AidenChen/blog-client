@@ -1,6 +1,6 @@
 <template>
   <div class="post-list">
-    <ul class="post-items">
+    <ul class="post-list-inner">
       <li v-for="post in posts" :key="post.id" class="post-item">
         <p class="post-time">{{ post.created_at }}</p>
         <h1 class="post-title">
@@ -31,32 +31,32 @@ defineOptions({
 
 const route = useRoute();
 const stateStore = useStateStore();
-const { posts, selectTags, curPage, allPage } = storeToRefs(stateStore);
+const { posts, curPage, allPage } = storeToRefs(stateStore);
+
+posts.value = [];
+curPage.value = 1;
+allPage.value = 0;
+const tags = ref<string>('');
+if (route.query.tags) {
+  tags.value = route.query.tags as string;
+}
+await stateStore.indexPost({ tags: tags.value });
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
-
-  posts.value = [];
-  curPage.value = 1;
-  allPage.value = 0;
-  if (route.query.tags) {
-    selectTags.value = [{ id: route.query.tags }];
-  } else {
-    stateStore.indexPost();
-  }
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
 });
 
-watch(() => selectTags.value, async (val: any[]) => {
-  const tags = val.map((tag: any) => tag.id).join(',');
-  if (!tags) return;
-  await stateStore.indexPost({
-    tags
-  });
-});
+// watch(() => selectTags.value, async (val: any[]) => {
+//   const tags = val.map((tag: any) => tag.id).join(',');
+//   if (!tags) return;
+//   await stateStore.indexPost({
+//     tags
+//   });
+// });
 
 const compiledMarkdown = (value: any) => {
   return marked.parse(value);
@@ -74,8 +74,7 @@ const handleScroll = () => {
 const handleLoadMore = () => {
   if (curPage.value + 1 <= allPage.value) {
     curPage.value++
-    const tags = selectTags.value.map((tag: any) => tag.id).join(',');
-    stateStore.indexPost({ index: curPage.value, tags })
+    stateStore.indexPost({ index: curPage.value, tags: tags.value })
   } else {
     console.log('finished');
   }
@@ -88,21 +87,24 @@ $gray-dark: #999;
 $gray: #eee;
 
 .post-list {
-  padding-top: 25px;
-  padding-bottom: 10px;
-  box-sizing: border-box;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
-.post-items {
+.post-list-inner {
   list-style: none;
   margin: 0 auto;
-  padding: 0 30px;
-  max-width: 940px;
+  @extend %maxWidth;
 }
 
 .post-item {
-  margin: 0 auto 15px;
+  margin: 0 auto 16px;
   border-bottom: 1px solid $gray;
+  box-sizing: border-box;
+
+  &:last-child {
+    margin: 0;
+  }
 }
 
 .post-time {

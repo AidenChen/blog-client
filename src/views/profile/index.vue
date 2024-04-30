@@ -42,13 +42,13 @@ const tags = ['JavaScript', 'Node.js', 'PHP'];
 
 <style lang="scss" scoped>
 .profile {
-  padding-top: 25px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 .profile-inner {
   margin: 0 auto;
-  padding: 0 30px;
-  max-width: 940px;
+  @extend %maxWidth;
 }
 
 .profile-abstract {
@@ -92,11 +92,10 @@ const tags = ['JavaScript', 'Node.js', 'PHP'];
   min-height: 100%;
   border-bottom: 1px solid #eee;
   padding-bottom: 24px;
-  margin-bottom: 24px;
   line-height: 24px;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1000px) {
   .profile-abstract {
     display: none;
   }
