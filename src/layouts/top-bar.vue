@@ -15,6 +15,7 @@
 </template>
 
 <script lang="ts" setup>
+import { useRoute } from 'vue-router';
 import { onClickOutside } from '@vueuse/core';
 import { storeToRefs } from 'pinia';
 import { useStateStore } from '@/stores/state';
@@ -23,10 +24,14 @@ defineOptions({
   name: 'TopBar'
 });
 
+const route = useRoute();
 const stateStore = useStateStore();
 const { posts, curPage, allPage } = storeToRefs(stateStore);
 
 const clearFilter = () => {
+  if (route.name !== 'post-list') {
+    return;
+  }
   posts.value = [];
   curPage.value = 1;
   allPage.value = 0;

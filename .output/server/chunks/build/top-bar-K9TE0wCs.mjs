@@ -1,8 +1,9 @@
 import { useSSRContext, defineComponent, ref, resolveComponent, mergeProps, unref, withCtx, createTextVNode } from 'vue';
 import { ssrRenderAttrs, ssrRenderAttr, ssrRenderClass, ssrRenderComponent } from 'vue/server-renderer';
+import { useRoute } from 'vue-router';
 import { onClickOutside } from '@vueuse/core';
 import { _ as _export_sfc, s as storeToRefs } from './server.mjs';
-import { u as useStateStore } from './state-C-2bMvco.mjs';
+import { u as useStateStore } from './state-BaJtl9jM.mjs';
 import '../runtime.mjs';
 import 'node:http';
 import 'node:https';
@@ -16,7 +17,6 @@ import 'devalue';
 import '@unhead/ssr';
 import 'unhead';
 import '@unhead/shared';
-import 'vue-router';
 import 'marked';
 import 'highlight.js';
 import 'marked-highlight';
@@ -29,9 +29,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "top-bar",
   __ssrInlineRender: true,
   setup(__props) {
+    const route = useRoute();
     const stateStore = useStateStore();
     const { posts, curPage, allPage } = storeToRefs(stateStore);
     const clearFilter = () => {
+      if (route.name !== "post-list") {
+        return;
+      }
       posts.value = [];
       curPage.value = 1;
       allPage.value = 0;
@@ -44,7 +48,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_router_link = resolveComponent("router-link");
-      _push(`<header${ssrRenderAttrs(mergeProps({ class: "top-bar" }, _attrs))} data-v-071d2724><div class="top-bar-inner" data-v-071d2724><nav class="top-bar-nav" data-v-071d2724><img class="top-bar-menu"${ssrRenderAttr("src", _imports_0)} alt="\u83DC\u5355" data-v-071d2724><div class="${ssrRenderClass([{ hover: unref(isHover) }, "trigger"])}" data-v-071d2724>`);
+      _push(`<header${ssrRenderAttrs(mergeProps({ class: "top-bar" }, _attrs))} data-v-3e02dab9><div class="top-bar-inner" data-v-3e02dab9><nav class="top-bar-nav" data-v-3e02dab9><img class="top-bar-menu"${ssrRenderAttr("src", _imports_0)} alt="\u83DC\u5355" data-v-3e02dab9><div class="${ssrRenderClass([{ hover: unref(isHover) }, "trigger"])}" data-v-3e02dab9>`);
       _push(ssrRenderComponent(_component_router_link, {
         class: "top-bar-link",
         to: "/posts",
@@ -117,7 +121,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("layouts/top-bar.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const topBar = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-071d2724"]]);
+const topBar = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-3e02dab9"]]);
 
 export { topBar as default };
-//# sourceMappingURL=top-bar-czSBNJEd.mjs.map
+//# sourceMappingURL=top-bar-K9TE0wCs.mjs.map
