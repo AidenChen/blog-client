@@ -2,7 +2,7 @@ import { useSSRContext, defineComponent, ref, resolveComponent, mergeProps, unre
 import { ssrRenderAttrs, ssrRenderAttr, ssrRenderClass, ssrRenderComponent } from 'vue/server-renderer';
 import { onClickOutside } from '@vueuse/core';
 import { _ as _export_sfc, s as storeToRefs } from './server.mjs';
-import { u as useStateStore } from './state-DbRa7TEM.mjs';
+import { u as useStateStore } from './state-C-2bMvco.mjs';
 import '../runtime.mjs';
 import 'node:http';
 import 'node:https';
@@ -44,9 +44,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _push, _parent, _attrs) => {
       const _component_router_link = resolveComponent("router-link");
-      _push(`<header${ssrRenderAttrs(mergeProps({ class: "top-bar" }, _attrs))} data-v-3b9995ec><div class="top-bar-inner" data-v-3b9995ec><nav class="site-nav" data-v-3b9995ec><img class="top__menu"${ssrRenderAttr("src", _imports_0)} alt="\u83DC\u5355" data-v-3b9995ec><div class="${ssrRenderClass([{ hover: unref(isHover) }, "trigger"])}" data-v-3b9995ec>`);
+      _push(`<header${ssrRenderAttrs(mergeProps({ class: "top-bar" }, _attrs))} data-v-071d2724><div class="top-bar-inner" data-v-071d2724><nav class="top-bar-nav" data-v-071d2724><img class="top-bar-menu"${ssrRenderAttr("src", _imports_0)} alt="\u83DC\u5355" data-v-071d2724><div class="${ssrRenderClass([{ hover: unref(isHover) }, "trigger"])}" data-v-071d2724>`);
       _push(ssrRenderComponent(_component_router_link, {
-        class: "header-link",
+        class: "top-bar-link",
         to: "/posts",
         onClick: clearFilter
       }, {
@@ -62,7 +62,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         _: 1
       }, _parent));
       _push(ssrRenderComponent(_component_router_link, {
-        class: "header-link",
+        class: "top-bar-link",
         to: "/tags"
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -77,7 +77,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         _: 1
       }, _parent));
       _push(ssrRenderComponent(_component_router_link, {
-        class: "header-link",
+        class: "top-bar-link",
         to: "/profile"
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -93,15 +93,15 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }, _parent));
       _push(`</div></nav>`);
       _push(ssrRenderComponent(_component_router_link, {
-        class: "top__title",
+        class: "top-bar-title",
         to: "/home"
       }, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
-            _push2(` Aiden Notes `);
+            _push2(`Aiden Notes`);
           } else {
             return [
-              createTextVNode(" Aiden Notes ")
+              createTextVNode("Aiden Notes")
             ];
           }
         }),
@@ -117,7 +117,7 @@ _sfc_main.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("layouts/top-bar.vue");
   return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
 };
-const topBar = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-3b9995ec"]]);
+const topBar = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-071d2724"]]);
 
 export { topBar as default };
-//# sourceMappingURL=top-bar-DLc2wPZF.mjs.map
+//# sourceMappingURL=top-bar-czSBNJEd.mjs.map

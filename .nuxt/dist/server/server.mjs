@@ -649,19 +649,19 @@ const customRoutes = [
       {
         name: "post-list",
         path: "",
-        component: () => import("./_nuxt/index-CISLoSA6.js").then((r) => r.default || r)
+        component: () => import("./_nuxt/index-yvDNYFDp.js").then((r) => r.default || r)
       },
       {
         name: "post-detail",
         path: ":id",
-        component: () => import("./_nuxt/index-so4resYT.js").then((r) => r.default || r)
+        component: () => import("./_nuxt/index-ywr16K8Y.js").then((r) => r.default || r)
       }
     ]
   },
   {
     name: "tag",
     path: "/tags",
-    component: () => import("./_nuxt/index-HjVy03Rz.js").then((r) => r.default || r)
+    component: () => import("./_nuxt/index-iT_ygnye.js").then((r) => r.default || r)
   },
   {
     name: "profile",
@@ -2168,7 +2168,7 @@ const plugins = [
 ];
 const layouts = {
   default: () => import("./_nuxt/default-n988c5cj.js").then((m) => m.default || m),
-  "top-bar": () => import("./_nuxt/top-bar-DLc2wPZF.js").then((m) => m.default || m)
+  "top-bar": () => import("./_nuxt/top-bar-czSBNJEd.js").then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",

@@ -1,15 +1,15 @@
 <template>
   <header class="top-bar">
     <div class="top-bar-inner">
-      <nav class="site-nav">
-        <img @touchstart.passive="handleClick" ref="menuRef" class="top__menu" src="@/assets/images/menu.png" alt="菜单" />
+      <nav class="top-bar-nav">
+        <img @click.native="handleClick" ref="menuRef" class="top-bar-menu" src="@/assets/images/menu.png" alt="菜单" />
         <div class="trigger" :class="{ hover: isHover }">
-          <router-link class="header-link" to="/posts" @click.native="clearFilter">POSTS</router-link>
-          <router-link class="header-link" to="/tags">TAGS</router-link>
-          <router-link class="header-link" to="/profile">PROFILE</router-link>
+          <router-link class="top-bar-link" to="/posts" @click.native="clearFilter">POSTS</router-link>
+          <router-link class="top-bar-link" to="/tags">TAGS</router-link>
+          <router-link class="top-bar-link" to="/profile">PROFILE</router-link>
         </div>
       </nav>
-      <router-link class="top__title" to="/home"> Aiden Notes </router-link>
+      <router-link class="top-bar-title" to="/home">Aiden Notes</router-link>
     </div>
   </header>
 </template>
@@ -19,17 +19,18 @@ import { onClickOutside } from '@vueuse/core';
 import { storeToRefs } from 'pinia';
 import { useStateStore } from '@/stores/state';
 
-const stateStore = useStateStore();
-const { posts, curPage, allPage } = storeToRefs(stateStore);
-
 defineOptions({
   name: 'TopBar'
 });
+
+const stateStore = useStateStore();
+const { posts, curPage, allPage } = storeToRefs(stateStore);
 
 const clearFilter = () => {
   posts.value = [];
   curPage.value = 1;
   allPage.value = 0;
+  // 有可能从列表页跳到列表页，tags直接置空
   stateStore.indexPost();
 };
 
@@ -63,7 +64,7 @@ onClickOutside(menuRef, () => {
   @extend %maxWidth;
 }
 
-.top__title {
+.top-bar-title {
   text-decoration: none;
   color: #acacac;
   font-weight: 300;
@@ -71,17 +72,17 @@ onClickOutside(menuRef, () => {
   letter-spacing: -1px;
 }
 
-.top__menu {
+.top-bar-menu {
   width: 32px;
   height: 32px;
   display: none;
 }
 
-.site-nav {
+.top-bar-nav {
   float: right;
 }
 
-.header-link {
+.top-bar-link {
   display: block;
   height: 60px;
   line-height: 60px;
@@ -91,7 +92,7 @@ onClickOutside(menuRef, () => {
   color: #111;
 }
 
-.header-link:not(:last-child) {
+.top-bar-link:not(:last-child) {
   margin-right: 20px;
 }
 
@@ -101,12 +102,12 @@ onClickOutside(menuRef, () => {
     padding: 0;
   }
 
-  .top__menu {
+  .top-bar-menu {
     display: block;
     float: right;
   }
 
-  .site-nav {
+  .top-bar-nav {
     text-align: right;
     background-color: #fdfdfd;
     border: 1px solid #eee;
@@ -126,13 +127,7 @@ onClickOutside(menuRef, () => {
     }
   }
 
-  .site-nav:hover {
-    .trigger {
-      display: block;
-    }
-  }
-
-  .header-link {
+  .top-bar-link {
     float: none;
     padding: 5px 10px;
     margin-left: 20px;
