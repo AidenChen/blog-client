@@ -81,6 +81,7 @@ onClickOutside(menuRef, () => {
   width: 32px;
   height: 32px;
   display: none;
+  cursor: pointer;
 }
 
 .top-bar-nav {
@@ -94,7 +95,7 @@ onClickOutside(menuRef, () => {
   font-size: 20px;
   float: left;
   text-decoration: none;
-  color: #111;
+  color: #1f2328;
 }
 
 .top-bar-link:not(:last-child) {

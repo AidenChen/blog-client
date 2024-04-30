@@ -51,10 +51,6 @@ defineOptions({
   text-align: center;
 }
 
-.home-title {
-  color: #111;
-}
-
 .home-description {
   color: #999;
 }
@@ -78,7 +74,7 @@ defineOptions({
 
   a {
     font-size: 12px;
-    color: #111;
+    color: #1f2328;
     text-decoration: none;
   }
 }

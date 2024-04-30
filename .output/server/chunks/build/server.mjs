@@ -737,7 +737,7 @@ const customRoutes = [
   {
     name: "home",
     path: "/home",
-    component: () => import('./index-Cc268TzO.mjs').then((r) => r.default || r)
+    component: () => import('./index-BXZGaW71.mjs').then((r) => r.default || r)
   },
   {
     path: "/posts",
@@ -746,19 +746,19 @@ const customRoutes = [
       {
         name: "post-list",
         path: "",
-        component: () => import('./index-DAuQQ0_3.mjs').then((r) => r.default || r)
+        component: () => import('./index-DPWTDKJK.mjs').then((r) => r.default || r)
       },
       {
         name: "post-detail",
         path: ":id",
-        component: () => import('./index-bqfWKGkI.mjs').then((r) => r.default || r)
+        component: () => import('./index-rpguSDaX.mjs').then((r) => r.default || r)
       }
     ]
   },
   {
     name: "tag",
     path: "/tags",
-    component: () => import('./index-Bc7ekhnl.mjs').then((r) => r.default || r)
+    component: () => import('./index-CCLtLrKA.mjs').then((r) => r.default || r)
   },
   {
     name: "profile",
@@ -1442,7 +1442,7 @@ const plugins = [
 ];
 const layouts = {
   default: () => import('./default-n988c5cj.mjs').then((m) => m.default || m),
-  "top-bar": () => import('./top-bar-K9TE0wCs.mjs').then((m) => m.default || m)
+  "top-bar": () => import('./top-bar-DCJgc3ID.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",
@@ -1694,7 +1694,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     return (_ctx, _push, _parent, _attrs) => {
       const _component_NuxtLayout = __nuxt_component_0$1;
       const _component_NuxtPage = __nuxt_component_0;
-      _push(`<div${ssrRenderAttrs(mergeProps({ id: "app" }, _attrs))} data-v-a0836dc6>`);
+      _push(`<div${ssrRenderAttrs(mergeProps({ id: "app" }, _attrs))} data-v-bbdc5fcd>`);
       _push(ssrRenderComponent(_component_NuxtLayout, null, {
         default: withCtx((_, _push2, _parent2, _scopeId) => {
           if (_push2) {
@@ -1726,7 +1726,7 @@ _sfc_main$2.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("app.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const AppComponent = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-a0836dc6"]]);
+const AppComponent = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-bbdc5fcd"]]);
 const _sfc_main$1 = {
   __name: "nuxt-error-page",
   __ssrInlineRender: true,

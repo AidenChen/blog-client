@@ -143,7 +143,7 @@ onBeforeUnmount(() => {
 
 .catalog-title {
   margin: 0 0 8px;
-  color: #111;
+  color: #1f2328;
   font-size: 18px;
 }
 
@@ -186,7 +186,7 @@ onBeforeUnmount(() => {
 .catalog-link {
   display: block;
   font-size: 14px;
-  color: #111;
+  color: #1f2328;
   line-height: 22px;
   text-decoration: none;
   padding: 3px 0;

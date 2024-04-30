@@ -75,7 +75,6 @@ const handleLoadMore = () => {
 </script>
 
 <style lang="scss" scoped>
-$black: #111;
 $gray-dark: #999;
 $gray: #eee;
 
@@ -115,7 +114,7 @@ $gray: #eee;
 
   a {
     text-decoration: none;
-    color: $black;
+    color: #1f2328;
   }
 }
 
