@@ -50,14 +50,6 @@ onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
 });
 
-// watch(() => selectTags.value, async (val: any[]) => {
-//   const tags = val.map((tag: any) => tag.id).join(',');
-//   if (!tags) return;
-//   await stateStore.indexPost({
-//     tags
-//   });
-// });
-
 const compiledMarkdown = (value: any) => {
   return marked.parse(value);
 };
@@ -74,7 +66,8 @@ const handleScroll = () => {
 const handleLoadMore = () => {
   if (curPage.value + 1 <= allPage.value) {
     curPage.value++
-    stateStore.indexPost({ index: curPage.value, tags: tags.value })
+    // 重新获取tags，因为有可能从当前页跳到当前页，tags没有刷新
+    stateStore.indexPost({ index: curPage.value, tags: route.query.tags as string ?? '' });
   } else {
     console.log('finished');
   }

@@ -7,7 +7,7 @@ import { markedHighlight } from 'marked-highlight';
 
 const inlineConfig = {
   "nuxt": {
-    "buildId": "488f2d18-d862-447a-b0e7-9a347b68d204"
+    "buildId": "1efa4dbd-4b98-4356-bd2b-2382c9502e2b"
   }
 };
 const __appConfig = /* @__PURE__ */ defuFn(cfg0, inlineConfig);
@@ -317,7 +317,6 @@ const useStateStore = defineStore("state", () => {
   const currentPostCompile = ref("");
   const posts = ref([]);
   const tags = ref([]);
-  const selectTags = ref([]);
   const total = ref(0);
   const allPage = ref(0);
   const curPage = ref(0);
@@ -331,16 +330,8 @@ const useStateStore = defineStore("state", () => {
     posts.value = posts.value.concat((_a2 = (_a = data == null ? void 0 : data.data) == null ? void 0 : _a.items) != null ? _a2 : []);
     total.value = data == null ? void 0 : data.data.total;
     const count = Math.ceil(total.value / size);
-    let stateAllPage = count;
-    let stateCurPage = index;
-    if (isNaN(+count)) {
-      stateAllPage = 0;
-    }
-    if (isNaN(+index)) {
-      stateCurPage = 0;
-    }
-    allPage.value = +stateAllPage;
-    curPage.value = +stateCurPage;
+    allPage.value = count;
+    curPage.value = index;
   };
   const showPost = (id) => {
     return new Promise((resolve) => {
@@ -374,7 +365,6 @@ const useStateStore = defineStore("state", () => {
     total,
     curPage,
     allPage,
-    selectTags,
     currentPost,
     currentPostCompile,
     indexPost,
@@ -384,4 +374,4 @@ const useStateStore = defineStore("state", () => {
 });
 
 export { marked$1 as m, useStateStore as u };
-//# sourceMappingURL=state-q97E545x.mjs.map
+//# sourceMappingURL=state-DbRa7TEM.mjs.map

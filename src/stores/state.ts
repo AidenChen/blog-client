@@ -12,7 +12,6 @@ export const useStateStore = defineStore('state', () => {
 
   const posts = ref<any[]>([]);
   const tags = ref<any[]>([]);
-  const selectTags = ref<any[]>([]);
 
   const total = ref<number>(0);
   const allPage = ref<number>(0);
@@ -28,17 +27,8 @@ export const useStateStore = defineStore('state', () => {
     total.value = data?.data.total;
     const count = Math.ceil(total.value / size);
 
-    let stateAllPage = count;
-    let stateCurPage = index;
-    if (isNaN(+count)) {
-      stateAllPage = 0;
-    }
-    if (isNaN(+index)) {
-      stateCurPage = 0;
-    }
-
-    allPage.value = +stateAllPage;
-    curPage.value = +stateCurPage;
+    allPage.value = count;
+    curPage.value = index;
   };
 
   const showPost = (id: string) => {
@@ -77,7 +67,6 @@ export const useStateStore = defineStore('state', () => {
     total,
     curPage,
     allPage,
-    selectTags,
     currentPost,
     currentPostCompile,
     indexPost,
