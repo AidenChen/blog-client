@@ -43,11 +43,16 @@
 .markdown-body {
   color: #1f2328 !important;
   background-color: #fff !important;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu, Helvetica Neue, Helvetica, Arial, PingFang SC, Microsoft YaHei UI, Microsoft YaHei, Source Han Sans CN, sans-serif !important;
 }
 
 .markdown-body blockquote {
   color: #656d76 !important;
   border-color: #d0d7de !important;
+}
+
+.markdown-body h2 {
+  border-color: hsla(210, 18%, 87%, 1) !important;
 }
 
 .markdown-body pre {
