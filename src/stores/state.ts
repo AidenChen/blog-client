@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import marked from '@/assets/scripts/marked';
 import { getPostList, getPostDetail } from '@/api/post';
 import { getTagList } from '@/api/tag';

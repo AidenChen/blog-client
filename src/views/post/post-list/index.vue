@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-import marked from '@/assets/scripts/marked';
+import { Marked } from 'marked';
 import { storeToRefs } from 'pinia';
 import { useStateStore } from '@/stores/state';
 
@@ -29,6 +29,7 @@ defineOptions({
   name: 'PostList'
 });
 
+const marked = new Marked();
 const route = useRoute();
 const stateStore = useStateStore();
 const { posts, curPage, allPage } = storeToRefs(stateStore);

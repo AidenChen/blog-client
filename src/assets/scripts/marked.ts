@@ -1,5 +1,5 @@
 import { Marked } from 'marked';
-import hljs from 'highlight.js';
+import hljs from 'highlight.js/lib/common';
 import { markedHighlight } from 'marked-highlight';
 import 'highlight.js/styles/monokai-sublime.css';
 
